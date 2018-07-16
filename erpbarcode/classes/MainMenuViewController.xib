@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,6 +18,7 @@
                 <outlet property="viewMainMenu1" destination="mGq-Ry-cyb" id="Ofb-J3-z21"/>
                 <outlet property="viewMainMenu2" destination="Bav-Kl-63z" id="N85-uN-UlJ"/>
                 <outlet property="viewMainMenu3" destination="QYd-fU-TTf" id="C62-sp-CX6"/>
+                <outlet property="viewMainMenu4" destination="kgh-OG-HlS" id="l39-UB-9DF"/>
                 <outlet property="viewSubMenu" destination="ZCH-Ro-iPE" id="Ozx-KJ-9jH"/>
             </connections>
         </placeholder>
@@ -207,6 +208,43 @@
                                     <state key="highlighted" backgroundImage="main_button_menu_i_up.png"/>
                                     <connections>
                                         <action selector="touchMainMenu:" destination="-1" eventType="touchUpInside" id="FH5-1P-4W2"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" misplaced="YES" id="kgh-OG-HlS" userLabel="View Main Menu4">
+                            <rect key="frame" x="5" y="399" width="310" height="103"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="J1A-on-xwR">
+                                    <rect key="frame" x="0.0" y="0.0" width="103" height="103"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                    <state key="normal" backgroundImage="main_button_menu_j.png">
+                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="main_button_menu_j_up.png"/>
+                                    <state key="highlighted" backgroundImage="main_button_menu_j_up.png"/>
+                                    <connections>
+                                        <action selector="touchMainMenu:" destination="-1" eventType="touchUpInside" id="GDo-Wb-z2p"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="8yw-hi-ncM">
+                                    <rect key="frame" x="104" y="0.0" width="103" height="103"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                    <state key="normal" backgroundImage="main_button_menu_k.png">
+                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" backgroundImage="main_button_menu_k_up.png"/>
+                                    <state key="highlighted" backgroundImage="main_button_menu_k_up.png"/>
+                                    <connections>
+                                        <action selector="touchMainMenu:" destination="-1" eventType="touchUpInside" id="CCl-MA-q07"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -461,5 +499,9 @@
         <image name="main_button_menu_h_up.png" width="103" height="103"/>
         <image name="main_button_menu_i.png" width="103" height="103"/>
         <image name="main_button_menu_i_up.png" width="103" height="103"/>
+        <image name="main_button_menu_j.png" width="103" height="103"/>
+        <image name="main_button_menu_j_up.png" width="103" height="103"/>
+        <image name="main_button_menu_k.png" width="103" height="103"/>
+        <image name="main_button_menu_k_up.png" width="103" height="103"/>
     </resources>
 </document>
