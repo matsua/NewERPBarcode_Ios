@@ -84,9 +84,7 @@
 		08949D661D5C743900854D23 /* pwreset_btn_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08949D5E1D5C743900854D23 /* pwreset_btn_off@2x.png */; };
 		08949D671D5C743900854D23 /* pwreset_btn_tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 08949D5F1D5C743900854D23 /* pwreset_btn_tap.png */; };
 		08949D681D5C743900854D23 /* pwreset_btn_tap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08949D601D5C743900854D23 /* pwreset_btn_tap@2x.png */; };
-		08A8CA2C20FC8976007A2B35 /* BaseViewResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A8CA2720FC8975007A2B35 /* BaseViewResultController.m */; };
 		08A8CA2D20FC8976007A2B35 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A8CA2920FC8975007A2B35 /* BaseViewController.m */; };
-		08A8CA2E20FC8976007A2B35 /* BaseViewResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A8CA2A20FC8975007A2B35 /* BaseViewResultController.xib */; };
 		08A8CA2F20FC8976007A2B35 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A8CA2B20FC8976007A2B35 /* BaseViewController.xib */; };
 		08AF22CE2057A1180015BEE4 /* libnSafer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AF22C22057A1160015BEE4 /* libnSafer.a */; };
 		08AF22CF2057A1180015BEE4 /* libNSHCBasic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AF22C32057A1160015BEE4 /* libNSHCBasic.a */; };
@@ -777,11 +775,8 @@
 		08949D5E1D5C743900854D23 /* pwreset_btn_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwreset_btn_off@2x.png"; sourceTree = "<group>"; };
 		08949D5F1D5C743900854D23 /* pwreset_btn_tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pwreset_btn_tap.png; sourceTree = "<group>"; };
 		08949D601D5C743900854D23 /* pwreset_btn_tap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwreset_btn_tap@2x.png"; sourceTree = "<group>"; };
-		08A8CA2620FC8975007A2B35 /* BaseViewResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewResultController.h; path = classes/BaseViewResultController.h; sourceTree = "<group>"; };
-		08A8CA2720FC8975007A2B35 /* BaseViewResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewResultController.m; path = classes/BaseViewResultController.m; sourceTree = "<group>"; };
 		08A8CA2820FC8975007A2B35 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = classes/BaseViewController.h; sourceTree = "<group>"; };
 		08A8CA2920FC8975007A2B35 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = classes/BaseViewController.m; sourceTree = "<group>"; };
-		08A8CA2A20FC8975007A2B35 /* BaseViewResultController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewResultController.xib; path = classes/BaseViewResultController.xib; sourceTree = "<group>"; };
 		08A8CA2B20FC8976007A2B35 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewController.xib; path = classes/BaseViewController.xib; sourceTree = "<group>"; };
 		08AF22702057A0F50015BEE4 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = classes/ixShield/include/buffer.h; sourceTree = "<group>"; };
 		08AF22712057A0F50015BEE4 /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bn.h; path = classes/ixShield/include/bn.h; sourceTree = "<group>"; };
@@ -1654,9 +1649,6 @@
 				08A8CA2820FC8975007A2B35 /* BaseViewController.h */,
 				08A8CA2920FC8975007A2B35 /* BaseViewController.m */,
 				08A8CA2B20FC8976007A2B35 /* BaseViewController.xib */,
-				08A8CA2620FC8975007A2B35 /* BaseViewResultController.h */,
-				08A8CA2720FC8975007A2B35 /* BaseViewResultController.m */,
-				08A8CA2A20FC8975007A2B35 /* BaseViewResultController.xib */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -2853,7 +2845,6 @@
 				08DE32CD1BFC6DA600F1C32E /* LocListCell.xib in Resources */,
 				B6A876AD183EF4900053EBE8 /* main_button_menu_e.png in Resources */,
 				B6A87687183EF4900053EBE8 /* main_button_menu_b4.png in Resources */,
-				08A8CA2E20FC8976007A2B35 /* BaseViewResultController.xib in Resources */,
 				B6A65CEC1845BCB800422D27 /* toolbar_bg@2x.png in Resources */,
 				5D3F699E17B33E8400EBD5E8 /* navi_bg@2x.png in Resources */,
 				B6A65CB41845BC8600422D27 /* button_regist_up@2x.png in Resources */,
@@ -3387,7 +3378,6 @@
 				08F860FF1C27CE8600176F78 /* SourceMarkingListCell.m in Sources */,
 				5D5439BC17D864B500DE8CF0 /* CLScrollview.m in Sources */,
 				B66A86F3180F719100923A70 /* TakeOverNRegEquipViewController.m in Sources */,
-				08A8CA2C20FC8976007A2B35 /* BaseViewResultController.m in Sources */,
 				B6E97DE7181E453200C40DBB /* ArgumentConfirmCell2.m in Sources */,
 				08C565591BAA9911009880AF /* PrintSettingViewController.m in Sources */,
 				0825F3BC2073506C0096C9C1 /* UINavigationItem+Addition.m in Sources */,

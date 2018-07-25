@@ -6,29 +6,40 @@
 //  Copyright (c) 2016년 ktds. All rights reserved.
 //
 
+#import "AppDelegate.h"
+#import "ERPAlert.h"
 #import "BaseViewController.h"
 #import "ZBarReaderViewController.h"
-#import "BaseViewResultController.h"
 
 @interface BaseViewController ()
 
+@property(nonatomic,strong) IBOutlet UIView* orgView;
+@property(nonatomic,strong) IBOutlet UILabel* lblOrperationInfo;
 @property(nonatomic,strong) IBOutlet UIView *locCodeView;
 @property(nonatomic,strong) IBOutlet UIView *fccCodeView;
 @property(nonatomic,strong) IBOutlet UITextField *locCode;
+@property(nonatomic,strong) NSString *strLocBarCode;
 @property(nonatomic,strong) IBOutlet UITextField *fccCode;
+@property(nonatomic,strong) NSString *strFccBarCode;
 @property(nonatomic,strong) NSString *bsnNo;
 @property(nonatomic,assign) NSInteger nSelected;
+@property(nonatomic,strong) IBOutlet UIWebView *resultWebView;
 
 @end
 
 @implementation BaseViewController
+@synthesize orgView;
+@synthesize lblOrperationInfo;
 @synthesize locCodeView;
 @synthesize fccCodeView;
 @synthesize locCode;
+@synthesize strLocBarCode;
 @synthesize fccCode;
+@synthesize strFccBarCode;
 @synthesize bsnNo;
 @synthesize bsnGb;
 @synthesize nSelected;
+@synthesize resultWebView;
 
 #pragma mark - View LifeCycle
 
@@ -68,6 +79,11 @@
     }
 }
 
+- (BOOL)saveToWorkDB
+{
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,6 +92,30 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL) processShouldReturn:(NSString*)barcode tag:(NSInteger)tag
 {
+    NSString* message = nil;
+    
+    if (tag == 100){ //위치바코드
+        strLocBarCode = barcode;
+        
+        message = [Util barcodeMatchVal:1 barcode:strLocBarCode];
+        if(message.length > 0){
+            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+            locCode.text = strLocBarCode = @"";
+            [locCode becomeFirstResponder];
+            return YES;
+        }
+    }
+    else if (tag == 200){ //200 설비 바코드
+        strFccBarCode = barcode;
+        
+        message = [Util barcodeMatchVal:2 barcode:strFccBarCode];
+        if(message.length > 0){
+            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+            fccCode.text = strFccBarCode = @"";
+            [fccCode becomeFirstResponder];
+            return YES;
+        }
+    }
     return YES;
 }
 
@@ -95,6 +135,20 @@
     
     textField.text = barcode;
     return [self processShouldReturn:barcode tag:[textField tag]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kdcBarcodeDataArrived:) name:kdcBarcodeDataArrivedNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kdcBarcodeDataArrivedNotification object:nil];
 }
 
 - (IBAction)scan:(id)sender
@@ -142,46 +196,43 @@
 -(IBAction)requestBtn:(id)sender{
     NSString *JOB_GUBUN = [Util udObjectForKey:USER_WORK_NAME];
     NSString *url = @"";
+    
+    //TEST CODE : matsua
     NSString *userId = @"91186176";
-    NSString *locCd = locCode.text;
-    NSString *fccCd = @"001Z00911318010012";
+    strLocBarCode = locCode.text;
+    strFccBarCode = @"001Z00911318010012";
     
     if([bsnGb isEqualToString:@"OA"]){//OA
         if([JOB_GUBUN isEqualToString:@"불용요청"]){//불용요청
-            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST_HALF, bsnNo, userId, fccCd];
+            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST_HALF, bsnNo, userId, strFccBarCode];
         }else if([JOB_GUBUN isEqualToString:@"OA연식조회"]){//OA연식조회
-            url = [NSString stringWithFormat:API_BASE_OA_ITEM_SEARCH, bsnNo, userId, fccCd];
+            url = [NSString stringWithFormat:API_BASE_OA_ITEM_SEARCH, bsnNo, userId, strFccBarCode];
         }else{//신규등록, 관리자 변경, 재물조사, 납품확인, 대여등록, 대여반납
-            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST, bsnNo, userId, locCd, fccCd];
+            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST, bsnNo, userId, strLocBarCode, strFccBarCode];
         }
     }else{//OE
         if([JOB_GUBUN isEqualToString:@"불용요청"]){//불용요청
-            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST_HALF, bsnNo, userId, fccCd];
+            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST_HALF, bsnNo, userId, strFccBarCode];
         }else if([JOB_GUBUN isEqualToString:@"비품연식조회"] ){//비품연식조회
-            url = [NSString stringWithFormat:API_BASE_OE_ITEM_SEARCH, bsnNo, userId, fccCd];
+            url = [NSString stringWithFormat:API_BASE_OE_ITEM_SEARCH, bsnNo, userId, strFccBarCode];
         }else{//신규등록, 관리자 변경, 재물조사, 납품확인, 대여등록, 대여반납
-            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST, bsnNo, userId, locCd, fccCd];
+            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST, bsnNo, userId, strLocBarCode, strFccBarCode];
         }
     }
     
     NSLog(@"url=======%@", url);
-
-//팜업뷰
-    BaseViewResultController *resultView = [[BaseViewResultController alloc] init];
-    resultView.webUrl = url;
-    resultView.bsnGb = bsnGb;
-    [self presentViewController:resultView animated:YES completion:nil];
-
-// delegate 사용해야함.
-//    BaseViewResultController *controller = [[BaseViewResultController alloc] initWithNibName:nil bundle:nil];
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-//    controller.webUrl = url;
-//    controller.bsnGb = bsnGb;
-//    [self presentViewController:navigationController animated:YES completion:nil];
+    
+    NSURL *resultWebUrl = [[NSURL alloc] initWithString:url];
+    NSURLRequest *resultWebUrlRequest = [[NSURLRequest alloc] initWithURL:resultWebUrl];
+    [resultWebView loadRequest:resultWebUrlRequest];
 }
 
 -(void)layoutChangeSubview{
     [self.navigationItem addLeftBarButtonItem:@"navigation_back" target:self action:@selector(touchBackBtn:)];
+    
+    //운용조직
+    NSDictionary* dic = [Util udObjectForKey:USER_INFO];
+    lblOrperationInfo.text = [NSString stringWithFormat:@"%@/%@",[dic objectForKey:@"orgId"],[dic objectForKey:@"orgName"]];
     
     bsnNo = @"";
     NSString *JOB_GUBUN = [Util udObjectForKey:USER_WORK_NAME];
@@ -201,6 +252,41 @@
     else if([JOB_GUBUN isEqualToString:@"대여등록"]) bsnNo = @"0513";
     else if([JOB_GUBUN isEqualToString:@"대여반납"]) bsnNo = @"0503";
 
+}
+
+#pragma mark - KSCAN Notification
+-(void)kdcBarcodeDataArrived:(NSNotification*)noti
+{
+    KDCReader *kReader = (KDCReader *)[noti object];
+    NSString* barcode = (NSString*)[kReader GetBarcodeData];
+    UIResponder *firstResponder = [self findFirstResponder];
+    if([firstResponder isKindOfClass:[UITextField class]]){
+        UITextField *textField = (UITextField *)firstResponder;
+        textField.text = barcode;
+        [self processShouldReturn:barcode tag:textField.tag];
+    }
+}
+
+- (void) showMessage:(NSString*)message tag:(NSInteger)tag title1:(NSString*)title1 title2:(NSString*)title2
+{
+    [self showMessage:message tag:tag title1:title1 title2:title2 isError:NO];
+}
+
+- (void) showMessage:(NSString*)message tag:(NSInteger)tag title1:(NSString*)title1 title2:(NSString*)title2 isError:(BOOL)isError
+{
+    [[ERPAlert getInstance] showMessage:message tag:tag title1:title1 title2:title2 isError:isError isCheckComplete:YES delegate:self];
+}
+
+- (void) fccBecameFirstResponder
+{
+    if (![fccCode isFirstResponder])
+        [fccCode becomeFirstResponder];
+}
+
+- (void) locBecameFirstResponder
+{
+    if (![locCode isFirstResponder])
+        [locCode becomeFirstResponder];
 }
 
 - (void) touchBackBtn:(id)sender
