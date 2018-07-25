@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseViewController">
             <connections>
-                <outlet property="fccCode" destination="Y6M-AE-Lar" id="5SH-dA-d7h"/>
-                <outlet property="fccCodeView" destination="13P-FG-Klf" id="lfL-Wk-q6B"/>
+                <outlet property="facCode" destination="Y6M-AE-Lar" id="DDo-4v-QOK"/>
+                <outlet property="facCodeView" destination="13P-FG-Klf" id="1b7-vQ-Phf"/>
                 <outlet property="lblOrperationInfo" destination="wkk-pa-BEL" id="VtR-gJ-qgZ"/>
                 <outlet property="locCode" destination="Jj5-KF-UnW" id="HDe-Fp-kDf"/>
                 <outlet property="locCodeView" destination="L7D-4J-dqz" id="AnP-xe-2s6"/>

@@ -16,11 +16,11 @@
 @property(nonatomic,strong) IBOutlet UIView* orgView;
 @property(nonatomic,strong) IBOutlet UILabel* lblOrperationInfo;
 @property(nonatomic,strong) IBOutlet UIView *locCodeView;
-@property(nonatomic,strong) IBOutlet UIView *fccCodeView;
+@property(nonatomic,strong) IBOutlet UIView *facCodeView;
 @property(nonatomic,strong) IBOutlet UITextField *locCode;
 @property(nonatomic,strong) NSString *strLocBarCode;
-@property(nonatomic,strong) IBOutlet UITextField *fccCode;
-@property(nonatomic,strong) NSString *strFccBarCode;
+@property(nonatomic,strong) IBOutlet UITextField *facCode;
+@property(nonatomic,strong) NSString *strFacBarCode;
 @property(nonatomic,strong) NSString *bsnNo;
 @property(nonatomic,assign) NSInteger nSelected;
 @property(nonatomic,strong) IBOutlet UIWebView *resultWebView;
@@ -31,11 +31,11 @@
 @synthesize orgView;
 @synthesize lblOrperationInfo;
 @synthesize locCodeView;
-@synthesize fccCodeView;
+@synthesize facCodeView;
 @synthesize locCode;
 @synthesize strLocBarCode;
-@synthesize fccCode;
-@synthesize strFccBarCode;
+@synthesize facCode;
+@synthesize strFacBarCode;
 @synthesize bsnNo;
 @synthesize bsnGb;
 @synthesize nSelected;
@@ -75,7 +75,7 @@
         ){
         UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, PHONE_SCREEN_HEIGHT, 1, 1)];
         locCode.inputView = dummyView;
-        fccCode.inputView = dummyView;
+        facCode.inputView = dummyView;
     }
 }
 
@@ -106,13 +106,13 @@
         }
     }
     else if (tag == 200){ //200 설비 바코드
-        strFccBarCode = barcode;
+        strFacBarCode = barcode;
         
-        message = [Util barcodeMatchVal:2 barcode:strFccBarCode];
+        message = [Util barcodeMatchVal:2 barcode:strFacBarCode];
         if(message.length > 0){
             [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-            fccCode.text = strFccBarCode = @"";
-            [fccCode becomeFirstResponder];
+            facCode.text = strFacBarCode = @"";
+            [facCode becomeFirstResponder];
             return YES;
         }
     }
@@ -178,7 +178,7 @@
     if(nSelected == 0){
         [locCode setText:result];
     }else{
-        [fccCode setText:result];
+        [facCode setText:result];
     }
     
     NSLog(@"Result : %@", result);
@@ -200,23 +200,23 @@
     //TEST CODE : matsua
     NSString *userId = @"91186176";
     strLocBarCode = locCode.text;
-    strFccBarCode = @"001Z00911318010012";
+    strFacBarCode = @"001Z00911318010012";
     
     if([bsnGb isEqualToString:@"OA"]){//OA
         if([JOB_GUBUN isEqualToString:@"불용요청"]){//불용요청
-            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST_HALF, bsnNo, userId, strFccBarCode];
+            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST_HALF, bsnNo, userId, strFacBarCode];
         }else if([JOB_GUBUN isEqualToString:@"OA연식조회"]){//OA연식조회
-            url = [NSString stringWithFormat:API_BASE_OA_ITEM_SEARCH, bsnNo, userId, strFccBarCode];
+            url = [NSString stringWithFormat:API_BASE_OA_ITEM_SEARCH, bsnNo, userId, strFacBarCode];
         }else{//신규등록, 관리자 변경, 재물조사, 납품확인, 대여등록, 대여반납
-            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST, bsnNo, userId, strLocBarCode, strFccBarCode];
+            url = [NSString stringWithFormat:API_BASE_OA_WORK_LIST, bsnNo, userId, strLocBarCode, strFacBarCode];
         }
     }else{//OE
         if([JOB_GUBUN isEqualToString:@"불용요청"]){//불용요청
-            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST_HALF, bsnNo, userId, strFccBarCode];
+            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST_HALF, bsnNo, userId, strFacBarCode];
         }else if([JOB_GUBUN isEqualToString:@"비품연식조회"] ){//비품연식조회
-            url = [NSString stringWithFormat:API_BASE_OE_ITEM_SEARCH, bsnNo, userId, strFccBarCode];
+            url = [NSString stringWithFormat:API_BASE_OE_ITEM_SEARCH, bsnNo, userId, strFacBarCode];
         }else{//신규등록, 관리자 변경, 재물조사, 납품확인, 대여등록, 대여반납
-            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST, bsnNo, userId, strLocBarCode, strFccBarCode];
+            url = [NSString stringWithFormat:API_BASE_OE_WORK_LIST, bsnNo, userId, strLocBarCode, strFacBarCode];
         }
     }
     
@@ -240,7 +240,7 @@
     if([JOB_GUBUN isEqualToString:@"불용요청"] || [JOB_GUBUN isEqualToString:@"비품연식조회"] || [JOB_GUBUN isEqualToString:@"OA연식조회"]){
         CGRect locviewFrame = CGRectMake(locCodeView.frame.origin.x, locCodeView.frame.size.height, locCodeView.frame.size.width, locCodeView.frame.size.height);
         locCodeView.hidden = YES;
-        fccCodeView.frame = locviewFrame;
+        facCodeView.frame = locviewFrame;
     }
     
     if([JOB_GUBUN isEqualToString:@"신규등록"]) bsnNo = @"0501";
@@ -279,8 +279,8 @@
 
 - (void) fccBecameFirstResponder
 {
-    if (![fccCode isFirstResponder])
-        [fccCode becomeFirstResponder];
+    if (![facCode isFirstResponder])
+        [facCode becomeFirstResponder];
 }
 
 - (void) locBecameFirstResponder
