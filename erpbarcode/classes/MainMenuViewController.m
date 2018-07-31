@@ -237,6 +237,16 @@
                 OutIntoViewController* vc = [[OutIntoViewController alloc] init];
                 [controller pushViewController:vc animated:YES];
             }
+            else if(nTag == 7){ //형상구성(창고내)
+                [Util udSetObject:@"형상구성(창고내)" forKey:USER_WORK_NAME];
+                OutIntoViewController* vc = [[OutIntoViewController alloc] init];
+                [controller pushViewController:vc animated:YES];
+            }
+            else if(nTag == 8){ //형상해제(창고내)
+                [Util udSetObject:@"형상해제(창고내)" forKey:USER_WORK_NAME];
+                OutIntoViewController* vc = [[OutIntoViewController alloc] init];
+                [controller pushViewController:vc animated:YES];
+            }
             break;
         case 2: // 인스토어마킹
             if (nTag == 0){ //바코드대체요청

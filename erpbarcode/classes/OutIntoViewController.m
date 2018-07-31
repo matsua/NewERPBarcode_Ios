@@ -1783,7 +1783,9 @@ const static char* moveTarKey = "moveTarKey";
         [JOB_GUBUN isEqualToString:@"입고(팀내)"]      ||
         [JOB_GUBUN isEqualToString:@"접수(팀간)"]   ||
         [JOB_GUBUN isEqualToString:@"납품입고"] ||
-        [JOB_GUBUN isEqualToString:@"배송출고"]
+        [JOB_GUBUN isEqualToString:@"배송출고"] ||
+        [JOB_GUBUN isEqualToString:@"형상구성(창고내)"] ||
+        [JOB_GUBUN isEqualToString:@"형상해제(창고내)"]
         )
         isRequireLocCode = YES;
     else
@@ -2146,6 +2148,35 @@ const static char* moveTarKey = "moveTarKey";
         
         _scrollView.frame = CGRectMake(0, (failureDevView.frame.origin.y + failureDevView.frame.size.height), 320, PHONE_SCREEN_HEIGHT - (failureDevView.frame.origin.y + failureDevView.frame.size.height + 80));
         _scrollView.contentSize = CGSizeMake(_tableView2.bounds.size.width, _scrollView.frame.size.height);
+        
+    }else if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+        uuView.hidden = NO;
+        upperFacView.hidden = NO;
+        fccStatusView.hidden = YES;
+        
+        txtUFacCode.backgroundColor = (txtUFacCode.enabled)? [UIColor whiteColor]:[UIColor lightGrayColor];
+        lblUFacCode.textColor = (txtUFacCode.enabled)? [UIColor blackColor] : [UIColor lightGrayColor];
+        
+        txtUFacCode.backgroundColor = (txtUFacCode.enabled)? [UIColor whiteColor]:[UIColor lightGrayColor];
+        
+        upperFacView.frame = CGRectMake(upperFacView.frame.origin.x, fccBarcodeView.frame.origin.y + fccBarcodeView.frame.size.height, upperFacView.frame.size.width,upperFacView.frame.size.height);
+        curdView.frame = CGRectMake(0, 159, 320,40);
+        _tableView.frame = CGRectMake(0, 199, 320, PHONE_SCREEN_HEIGHT - (curdView.frame.origin.y + curdView.frame.size.height)  - 70);
+        
+        btnScan.selected = YES;
+        btnScan.userInteractionEnabled = NO;
+        
+    }else if([JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
+        locBarcodeView.hidden = YES;
+        locNameView.hidden = YES;
+        fccStatusView.hidden = YES;
+        fccBarcodeView.frame = CGRectMake(fccBarcodeView.frame.origin.x, 26, fccBarcodeView.frame.size.width,fccBarcodeView.frame.size.height); //설비바코드
+        curdView.frame = CGRectMake(0, 61, 320, 40); //3번째 라인
+        
+        _tableView.frame = CGRectMake(0, 102, 320, PHONE_SCREEN_HEIGHT - (curdView.frame.origin.y + curdView.frame.size.height) - 80);
+        
+        btnScan.selected = YES;
+        btnScan.userInteractionEnabled = YES;
         
     }
     else {

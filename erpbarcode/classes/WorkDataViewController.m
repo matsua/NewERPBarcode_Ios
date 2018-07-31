@@ -316,7 +316,9 @@
             [WORK_CD isEqualToString:@"30"] ||  // 고장등록
             [WORK_CD isEqualToString:@"40"] ||  // 철거관리
             [WORK_CD isEqualToString:@"50"] ||  // 설비상태변경
-            [WORK_CD isEqualToString:@"71"]     // 설비정보
+            [WORK_CD isEqualToString:@"71"] ||   // 설비정보
+            [WORK_CD isEqualToString:@"17"] ||   // 형상구성(창고내)
+            [WORK_CD isEqualToString:@"18"]    // 형상해제(창고내)
         )
     {
         OutIntoViewController* vc = [[OutIntoViewController alloc] init];
