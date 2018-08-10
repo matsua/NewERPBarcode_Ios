@@ -2165,6 +2165,7 @@ const static char* moveTarKey = "moveTarKey";
         
         btnScan.selected = YES;
         btnScan.userInteractionEnabled = NO;
+        [btnScan setImage:[UIImage imageNamed:@"common_checkbox_checked_disable"] forState:UIControlStateSelected];
         
     }else if([JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
         locBarcodeView.hidden = YES;

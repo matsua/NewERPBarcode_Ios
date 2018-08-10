@@ -84,6 +84,10 @@
 		08949D661D5C743900854D23 /* pwreset_btn_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08949D5E1D5C743900854D23 /* pwreset_btn_off@2x.png */; };
 		08949D671D5C743900854D23 /* pwreset_btn_tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 08949D5F1D5C743900854D23 /* pwreset_btn_tap.png */; };
 		08949D681D5C743900854D23 /* pwreset_btn_tap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08949D601D5C743900854D23 /* pwreset_btn_tap@2x.png */; };
+		08ACF5DD210F014D0083E24F /* main_button_menu_b8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08ACF5D9210F014C0083E24F /* main_button_menu_b8@2x.png */; };
+		08ACF5DE210F014D0083E24F /* main_button_menu_b9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08ACF5DA210F014C0083E24F /* main_button_menu_b9@2x.png */; };
+		08ACF5DF210F014D0083E24F /* main_button_menu_b8.png in Resources */ = {isa = PBXBuildFile; fileRef = 08ACF5DB210F014D0083E24F /* main_button_menu_b8.png */; };
+		08ACF5E0210F014D0083E24F /* main_button_menu_b9.png in Resources */ = {isa = PBXBuildFile; fileRef = 08ACF5DC210F014D0083E24F /* main_button_menu_b9.png */; };
 		08AF22CE2057A1180015BEE4 /* libnSafer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AF22C22057A1160015BEE4 /* libnSafer.a */; };
 		08AF22CF2057A1180015BEE4 /* libNSHCBasic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AF22C32057A1160015BEE4 /* libNSHCBasic.a */; };
 		08AF22D02057A1180015BEE4 /* ixShield_net.nshc.iXShieldSample_license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08AF22C42057A1160015BEE4 /* ixShield_net.nshc.iXShieldSample_license.txt */; };
@@ -773,6 +777,10 @@
 		08949D5E1D5C743900854D23 /* pwreset_btn_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwreset_btn_off@2x.png"; sourceTree = "<group>"; };
 		08949D5F1D5C743900854D23 /* pwreset_btn_tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pwreset_btn_tap.png; sourceTree = "<group>"; };
 		08949D601D5C743900854D23 /* pwreset_btn_tap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwreset_btn_tap@2x.png"; sourceTree = "<group>"; };
+		08ACF5D9210F014C0083E24F /* main_button_menu_b8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_button_menu_b8@2x.png"; sourceTree = "<group>"; };
+		08ACF5DA210F014C0083E24F /* main_button_menu_b9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_button_menu_b9@2x.png"; sourceTree = "<group>"; };
+		08ACF5DB210F014D0083E24F /* main_button_menu_b8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_button_menu_b8.png; sourceTree = "<group>"; };
+		08ACF5DC210F014D0083E24F /* main_button_menu_b9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_button_menu_b9.png; sourceTree = "<group>"; };
 		08AF22702057A0F50015BEE4 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = classes/ixShield/include/buffer.h; sourceTree = "<group>"; };
 		08AF22712057A0F50015BEE4 /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bn.h; path = classes/ixShield/include/bn.h; sourceTree = "<group>"; };
 		08AF22722057A0F60015BEE4 /* dso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dso.h; path = classes/ixShield/include/dso.h; sourceTree = "<group>"; };
@@ -1841,6 +1849,10 @@
 		5D3F699017B33E4500EBD5E8 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				08ACF5DB210F014D0083E24F /* main_button_menu_b8.png */,
+				08ACF5D9210F014C0083E24F /* main_button_menu_b8@2x.png */,
+				08ACF5DC210F014D0083E24F /* main_button_menu_b9.png */,
+				08ACF5DA210F014C0083E24F /* main_button_menu_b9@2x.png */,
 				08C27AB61FA9BE5B003B56A9 /* navi_bg_ps.png */,
 				08C27AB71FA9BE5B003B56A9 /* navi_bg_ps@2.png */,
 				08095D961DF7EC9D006C9CE2 /* btn_send.png */,
@@ -2815,6 +2827,7 @@
 				B6A876C3183EF4900053EBE8 /* main_button_menu_h1.png in Resources */,
 				5D3F699A17B33E4500EBD5E8 /* noise.png in Resources */,
 				5D5C9663181A3EB000BE0708 /* GridColumn2Cell.xib in Resources */,
+				08ACF5DF210F014D0083E24F /* main_button_menu_b8.png in Resources */,
 				B6825ABD183C861900BB27E4 /* ArgumentConfirmViewController.xib in Resources */,
 				5D3F699D17B33E8400EBD5E8 /* navi_bg.png in Resources */,
 				B6EE64F01845DE5E00209381 /* button_select@2x.png in Resources */,
@@ -2864,6 +2877,7 @@
 				0867B0DB1F32F5A4000AAAA6 /* GridBoldColumn2Cell.xib in Resources */,
 				B6EE64E51845DE5200209381 /* button_scan_cancel_up.png in Resources */,
 				5D3F69B717B35B6B00EBD5E8 /* login_btn_on@2x.png in Resources */,
+				08ACF5E0210F014D0083E24F /* main_button_menu_b9.png in Resources */,
 				5D3F69B817B35B6B00EBD5E8 /* text_box_01.png in Resources */,
 				5D3F69B917B35B6B00EBD5E8 /* text_box_01@2x.png in Resources */,
 				5D3F69BA17B35B6B00EBD5E8 /* text_box_03.png in Resources */,
@@ -3049,6 +3063,7 @@
 				B6A876C9183EF4900053EBE8 /* main_button_menu_h4.png in Resources */,
 				B6EE64CF1845DE3500209381 /* button_insu.png in Resources */,
 				B6A8767A183EF4900053EBE8 /* main_button_menu_a5@2x.png in Resources */,
+				08ACF5DD210F014D0083E24F /* main_button_menu_b8@2x.png in Resources */,
 				B23A846F18725E59005FC0E9 /* setupInfo.plist in Resources */,
 				B6A876A8183EF4900053EBE8 /* main_button_menu_d6@2x.png in Resources */,
 				B6A87616183EF4800053EBE8 /* common_button_bg_red@2x.png in Resources */,
@@ -3215,6 +3230,7 @@
 				B6A876CC183EF4900053EBE8 /* main_button_menu_z@2x.png in Resources */,
 				B6F9D8C7187A6E51004467AC /* button_receive_cert.png in Resources */,
 				5D6C80D217DEE8EB008C33C4 /* SettingViewController.xib in Resources */,
+				08ACF5DE210F014D0083E24F /* main_button_menu_b9@2x.png in Resources */,
 				5D4617BF17E06465007BBEA7 /* database.sqlite in Resources */,
 				B6A876A1183EF4900053EBE8 /* main_button_menu_d3.png in Resources */,
 				B6A87617183EF4800053EBE8 /* common_icon_logo1_bg.png in Resources */,
