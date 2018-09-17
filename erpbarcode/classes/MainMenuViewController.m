@@ -86,6 +86,13 @@
         [self setLoginMsg];
     }
     
+    
+    
+    //font test : matsua
+    for(NSString *familyName in [UIFont familyNames])
+        NSLog(@"%@ : [ %@ ]",familyName,
+              [[UIFont fontNamesForFamilyName:familyName] description]);
+    
     // Do any additional setup after loading the view from its nib.
     // menulist.plist로부터 menuList(NSArray*)를 생성한다.
     menuList = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"menulist" ofType:@"plist"]];
@@ -122,13 +129,13 @@
     //음영지역 아닐때만 호출 - 유저디폴트에 저장할 조직도 구성을 위해
     if (!isOffLine && [Util udObjectForKey:LIST_ORG] == nil)
         [self requestSearchOrg:@"000001"];
-
+    
     // 현재 위치정보를 요청함
-//    ERPLocationManager* locMgr = [ERPLocationManager getInstance];
-//    [locMgr getMyPosition];
+    //    ERPLocationManager* locMgr = [ERPLocationManager getInstance];
+    //    [locMgr getMyPosition];
     
     //base menu tab hidden - matsua - ing
-//    viewMainMenu4.hidden = YES;
+    //    viewMainMenu4.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -193,7 +200,7 @@
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
                     return;
                 }
-
+                
                 [Util udSetObject:@"인수" forKey:USER_WORK_NAME];
                 TakeOverNRegEquipViewController* vc = [[TakeOverNRegEquipViewController alloc] init];
                 [controller pushViewController:vc animated:YES];
@@ -266,7 +273,7 @@
                 if (isOffLine) {
                     message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"부외실물등록요청"];
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-
+                    
                     return;
                 }
                 
@@ -277,7 +284,7 @@
                 if (isOffLine) {
                     message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"인스토어마킹완료"];
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-
+                    
                     return;
                 }
                 [Util udSetObject:@"인스토어마킹완료" forKey:USER_WORK_NAME];
@@ -362,7 +369,7 @@
                 if (isOffLine) {
                     message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"상품단말실사"];
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-
+                    
                     return;
                 }
                 [Util udSetObject:@"상품단말실사" forKey:USER_WORK_NAME];
@@ -372,9 +379,9 @@
             else if (nTag == 3){ //임대단말실사
                 if (isOffLine) {
                     message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"임대단말실사"];
-
+                    
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-
+                    
                     return;
                 }
                 [Util udSetObject:@"임대단말실사" forKey:USER_WORK_NAME];
@@ -405,7 +412,7 @@
                 if (isOffLine) {
                     message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"장치바코드정보"];
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-
+                    
                     return;
                 }
                 [Util udSetObject:@"장치바코드정보" forKey:USER_WORK_NAME];
@@ -470,95 +477,174 @@
             }
             break;
             
-        case 9://base-oa
+        case 9://BaseOa
             if (nTag == 0){ //신규등록
-                [Util udSetObject:@"신규등록" forKey:USER_WORK_NAME];
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"신규등록"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    return;
+                }
+                
+                [Util udSetObject:@"신규등록[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 1){ // 관리자변경
-                [Util udSetObject:@"관리자변경" forKey:USER_WORK_NAME];
+            }else if (nTag == 1){ //관리자변경
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"관리자변경"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    return;
+                }
+                
+                [Util udSetObject:@"관리자변경[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 2){ // 재물조사
-                [Util udSetObject:@"재물조사" forKey:USER_WORK_NAME];
+            }else if (nTag == 2){ //재물조사
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"재물조사"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"재물조사[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 3){ // 불용요청
-                [Util udSetObject:@"불용요청" forKey:USER_WORK_NAME];
+            }else if (nTag == 3){ //불용요청
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"불용요청"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"불용요청[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 4){ // OA연식조회
-                [Util udSetObject:@"OA연식조회" forKey:USER_WORK_NAME];
+            }else if (nTag == 4){ //OA연식조회
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"OA연식조회"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"연식조회[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 5){ // 납품확인
-                [Util udSetObject:@"납품확인" forKey:USER_WORK_NAME];
+            }else if (nTag == 5){ //납품확인
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"납품확인"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"납품확인[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 6){ // 대여등록
-                [Util udSetObject:@"대여등록" forKey:USER_WORK_NAME];
+            }else if (nTag == 6){ //대여등록
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"대여등록"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"대여등록[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 7){ // 대여반납
-                [Util udSetObject:@"대여반납" forKey:USER_WORK_NAME];
+            }else if (nTag == 7){ //대여반납
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"대여반납"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"대여반납[OA]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OA";
                 [controller pushViewController:vc animated:YES];
             }
-            
             break;
             
-        case 10://base-oe
+        case 10://BaseOe
             if (nTag == 0){ //신규등록
-                [Util udSetObject:@"신규등록" forKey:USER_WORK_NAME];
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"신규등록"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    return;
+                }
+                
+                [Util udSetObject:@"신규등록[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 1){ // 관리자변경
-                [Util udSetObject:@"관리자변경" forKey:USER_WORK_NAME];
+            }else if (nTag == 1){ //관리자변경
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"관리자변경"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    return;
+                }
+                
+                [Util udSetObject:@"관리자변경[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 2){ // 재물조사
-                [Util udSetObject:@"재물조사" forKey:USER_WORK_NAME];
+            }else if (nTag == 2){ //재물조사
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"재물조사"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"재물조사[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 3){ // 불용요청
-                [Util udSetObject:@"불용요청" forKey:USER_WORK_NAME];
+            }else if (nTag == 3){ //불용요청
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"불용요청"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"불용요청[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 4){ // 비품연식조회
-                [Util udSetObject:@"비품연식조회" forKey:USER_WORK_NAME];
+            }else if (nTag == 4){ //비품연식조회
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"비품연식조회"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"비품연식조회[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 5){ // 납품확인
-                [Util udSetObject:@"납품확인" forKey:USER_WORK_NAME];
+            }else if (nTag == 5){ //납품확인
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"납품확인"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"납품확인[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 6){ // 대여등록
-                [Util udSetObject:@"대여등록" forKey:USER_WORK_NAME];
+            }else if (nTag == 6){ //대여등록
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"대여등록"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"대여등록[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
-            }else if(nTag == 7){ // 대여반납
-                [Util udSetObject:@"대여반납" forKey:USER_WORK_NAME];
+            }else if (nTag == 7){ //대여반납
+                if (isOffLine) {
+                    message = [NSString stringWithFormat:@"'음역지역작업' 중에는\n '%@' 작업을\n하실 수 없습니다.",@"대여반납"];
+                    [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                    
+                    return;
+                }
+                [Util udSetObject:@"대여반납[OE]" forKey:USER_WORK_NAME];
                 BaseViewController* vc = [[BaseViewController alloc] init];
-                vc.bsnGb = @"OE";
                 [controller pushViewController:vc animated:YES];
             }
-            
             break;
+            
         case 11://설정
             if (nTag == 0){ //종료
                 [Util udSetObject:@"종료" forKey:USER_WORK_NAME];
@@ -581,11 +667,11 @@
         // 서브메뉴 오픈이 아니고, 바로 실행(철거, 설비상태 변경)
         [self doMainMenu:@"철거"];
     }
-//    else if (selectedMenu == 5){
-//        if (isAlreadyOpen)
-//            [self MenuCloseWithAnimation:NO];
-//        [self doMainMenu:@"설비상태변경"];
-//    }
+    //    else if (selectedMenu == 5){
+    //        if (isAlreadyOpen)
+    //            [self MenuCloseWithAnimation:NO];
+    //        [self doMainMenu:@"설비상태변경"];
+    //    }
     else{
         // 선택한 메인메뉴의 superview를 셋팅한다.
         if (selectedMenu == 0 || selectedMenu == 1 || selectedMenu == 2)
@@ -626,6 +712,11 @@
         LoginViewController* vc = [[LoginViewController alloc] init];
         [vc requestUserLogout];
         exit(0);
+    }else if(alertView.tag == 2000){
+        if (buttonIndex == 0){
+            LoginViewController* vc = [[LoginViewController alloc] init];
+            [vc requestUserLogout];
+        }
     }
 }
 
@@ -691,29 +782,36 @@
     // =>title(메인메뉴이름), count(하위 서브메뉴의 갯수), submenu
     // submenu 구성
     // => 서브메뉴 이름, 이미지이름
-    for (NSInteger i = 0; i < subMenuList.count; i++){
+    for (NSInteger i=0; i < subMenuList.count; i++){
+        // 하나의 메뉴가 두개의 아이템(서브메뉴이름, 이미지 이름)을 갖고 있으므로
+        //        NSInteger fileIndex = (2*i)+1;
+        
         // 서브메뉴의 이름
         NSString* menuString = [subMenuList objectAtIndex:i];
         
+        // 해당 메뉴의 이미지파일 이름
+        //        NSString* fileName = [subMenuList objectAtIndex:fileIndex];
+        
         // 각 버튼은 tag값을 통해서 접근한다.
         UIButton * btn = (UIButton*)[viewSubMenu viewWithTag:10+i];
-//        UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
-        
+        //        UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
+        //        [imgView setImage:[UIImage imageNamed:@"common_button_bg_gray.png"]];
         [btn setTitle:menuString forState:UIControlStateNormal];
+        
+        NSLog(@"nemu : %@", menuString);
+        
         btn.hidden = NO;
-//        imgView.hidden = NO;
+        //        imgView.hidden = NO;
     }
     
     // submenu의 갯수만큼의 버튼을 제외한 나머지는 모두 감춰준다.
     for (NSInteger i = 0 ;i < 9 ; i++)
     {
-        if (i <= [subMenuList count]-1)
+        if (i <= [subMenuList count] - 1)
             continue;
         else {
             UIButton * btn = (UIButton*)[viewSubMenu viewWithTag:10+i];
-//            UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
             btn.hidden = YES;
-//            imgView.hidden = YES;
         }
     }
 }
@@ -728,16 +826,19 @@
     // 선택한 메인메뉴의 서브메뉴리스트를 subMenuList에 저장
     NSDictionary* menuDic = [menuList objectAtIndex:selectedMenu];
     subMenuList = [menuDic objectForKey:@"submenu"];
-
+    
     // 열리는 크기를 계산하는 과정
-    NSInteger subMenuLineCount = subMenuList.count / 7;
+    NSInteger subMenuLineCount = subMenuList.count / 3;
+    if(subMenuList.count % 3 == 0){
+        subMenuLineCount = subMenuList.count / 3 - 1;
+    }
     NSInteger posY = 0;
     NSInteger movePos1 = VIEW1_POS_Y;
     NSInteger movePos2 = VIEW2_POS_Y;
     NSInteger movePos3 = VIEW3_POS_Y;
     NSInteger movePos4 = VIEW4_POS_Y;
     NSInteger moveSize = (40 * subMenuLineCount) + 55;
-
+    
     // 두번째 메인메뉴 선택시 4인치가 아니면 위로 열리고, 4인치이면 아래로 열린다(크기 차에 따른 하단부의 공간문제 때문)
     if (line == 2 && !IS_4_INCH())
         direction = MENU_MOVE_UP;
@@ -790,9 +891,9 @@
     [self arrangeMenu];
     
     viewSubMenu.frame = CGRectMake(0, posY, 320, 0);
-    if ([subMenuList count]/2 <= 3)
+    if ([subMenuList count] <= 3)
         viewSubMenu.frame = CGRectMake(0, posY, 320, 55);
-    else if ([subMenuList count]/2 > 3 && [subMenuList count]/2 <=6)
+    else if ([subMenuList count] > 3 && [subMenuList count] <=6)
         viewSubMenu.frame = CGRectMake(0, posY, 320, 95);
     else
         viewSubMenu.frame = CGRectMake(0, posY, 320, 135);
@@ -805,7 +906,7 @@
     CGRect frameView2 = viewMainMenu2.frame;
     CGRect frameView3 = viewMainMenu3.frame;
     CGRect frameView4 = viewMainMenu4.frame;
-
+    
     // 이동 위치를 설정
     frameView1.origin.y = movePos1;
     frameView2.origin.y = movePos2;
@@ -824,7 +925,7 @@
                      completion:^(BOOL finished){
                          viewSubMenu.hidden = NO;
                      }];
-
+    
     // 메인메뉴가 열렸다고 표시함
     isAlreadyOpen = YES;
 }
@@ -934,7 +1035,7 @@
 - (void)processSearchOrg:(NSArray*)resultList
 {
     NSMutableArray* orgList = [NSMutableArray array];
-
+    
     if(resultList.count){
         BOOL isTFT = NO;
         for (NSDictionary* dic in resultList){

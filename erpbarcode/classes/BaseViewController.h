@@ -11,6 +11,6 @@
 
 @interface BaseViewController : UIViewController <ZBarReaderDelegate>
 
-@property(nonatomic,assign) NSString *bsnGb;
+@property(nonatomic,strong) NSDictionary* dbWorkDic;
 
 @end

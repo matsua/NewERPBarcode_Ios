@@ -116,8 +116,6 @@
 		08EC5A36214F994200FE4062 /* KTfontBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08EC5A35214F994200FE4062 /* KTfontBold.ttf */; };
 		08EC5A3B214F9C8400FE4062 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08EC5A39214F9C8300FE4062 /* BaseViewController.xib */; };
 		08EC5A3C214F9C8400FE4062 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EC5A3A214F9C8400FE4062 /* BaseViewController.m */; };
-		08EC5A40214F9D4E00FE4062 /* BaseViewResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08EC5A3D214F9D4D00FE4062 /* BaseViewResultController.xib */; };
-		08EC5A41214F9D4E00FE4062 /* BaseViewResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EC5A3F214F9D4E00FE4062 /* BaseViewResultController.m */; };
 		08EEE9E720A2E0DB006E7102 /* WBSListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F15C3E180E65B400410DE7 /* WBSListViewController.m */; };
 		08F5B2B31FCFEF7F0058C53D /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08310BE21FCD4ED200158677 /* LocalAuthentication.framework */; };
 		08F860FF1C27CE8600176F78 /* SourceMarkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F860FD1C27CE8600176F78 /* SourceMarkingListCell.m */; };
@@ -911,9 +909,6 @@
 		08EC5A38214F9C8300FE4062 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = classes/BaseViewController.h; sourceTree = "<group>"; };
 		08EC5A39214F9C8300FE4062 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewController.xib; path = classes/BaseViewController.xib; sourceTree = "<group>"; };
 		08EC5A3A214F9C8400FE4062 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = classes/BaseViewController.m; sourceTree = "<group>"; };
-		08EC5A3D214F9D4D00FE4062 /* BaseViewResultController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewResultController.xib; path = classes/BaseViewResultController.xib; sourceTree = "<group>"; };
-		08EC5A3E214F9D4E00FE4062 /* BaseViewResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewResultController.h; path = classes/BaseViewResultController.h; sourceTree = "<group>"; };
-		08EC5A3F214F9D4E00FE4062 /* BaseViewResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewResultController.m; path = classes/BaseViewResultController.m; sourceTree = "<group>"; };
 		08F860FC1C27CE8600176F78 /* SourceMarkingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceMarkingListCell.h; path = classes/SourceMarkingListCell.h; sourceTree = "<group>"; };
 		08F860FD1C27CE8600176F78 /* SourceMarkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SourceMarkingListCell.m; path = classes/SourceMarkingListCell.m; sourceTree = "<group>"; };
 		08F860FE1C27CE8600176F78 /* SourceMarkingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SourceMarkingListCell.xib; path = classes/SourceMarkingListCell.xib; sourceTree = "<group>"; };
@@ -1770,9 +1765,6 @@
 		08EC5A37214F9C2B00FE4062 /* BASE */ = {
 			isa = PBXGroup;
 			children = (
-				08EC5A3E214F9D4E00FE4062 /* BaseViewResultController.h */,
-				08EC5A3F214F9D4E00FE4062 /* BaseViewResultController.m */,
-				08EC5A3D214F9D4D00FE4062 /* BaseViewResultController.xib */,
 				08EC5A38214F9C8300FE4062 /* BaseViewController.h */,
 				08EC5A3A214F9C8400FE4062 /* BaseViewController.m */,
 				08EC5A39214F9C8300FE4062 /* BaseViewController.xib */,
@@ -3126,7 +3118,6 @@
 				B6A65CE51845BCB800422D27 /* navigation_back@2x.png in Resources */,
 				B6A65CB91845BC8600422D27 /* button_request.png in Resources */,
 				B6A87680183EF4900053EBE8 /* main_button_menu_b@2x.png in Resources */,
-				08EC5A40214F9D4E00FE4062 /* BaseViewResultController.xib in Resources */,
 				B6A876F4183EF9560053EBE8 /* main_button_menu_a_up.png in Resources */,
 				B6A87678183EF4900053EBE8 /* main_button_menu_a4@2x.png in Resources */,
 				B6A65C7C184580F300422D27 /* common_inputbar_bg@2x.png in Resources */,
@@ -3381,7 +3372,6 @@
 				B6E810721895D9E20089C8EE /* ZoomPicViewController.m in Sources */,
 				5D26950817BE250600DD0BA9 /* BuyOutIntoViewController.m in Sources */,
 				B69CD54E18267AD100ADB6FE /* DatePickerViewController.m in Sources */,
-				08EC5A41214F9D4E00FE4062 /* BaseViewResultController.m in Sources */,
 				0825F3BB2073506C0096C9C1 /* UIViewController+findFirstResponder.m in Sources */,
 				5DD869AE1858685A00AE39E4 /* NoticeContentCell.m in Sources */,
 				083AB47619DB9D4B00CC6715 /* ChangePasswordViewController.m in Sources */,
