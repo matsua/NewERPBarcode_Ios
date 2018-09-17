@@ -113,6 +113,11 @@
 		08E3443B1BB4E49F007CDC2F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E3443A1BB4E49F007CDC2F /* libsqlite3.0.tbd */; };
 		08E3443D1BB4E4AC007CDC2F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E3443C1BB4E4AC007CDC2F /* libz.tbd */; };
 		08E5235C1F6FAB29003CB688 /* libKDCReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E5235B1F6FAB28003CB688 /* libKDCReader.a */; };
+		08EC5A36214F994200FE4062 /* KTfontBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08EC5A35214F994200FE4062 /* KTfontBold.ttf */; };
+		08EC5A3B214F9C8400FE4062 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08EC5A39214F9C8300FE4062 /* BaseViewController.xib */; };
+		08EC5A3C214F9C8400FE4062 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EC5A3A214F9C8400FE4062 /* BaseViewController.m */; };
+		08EC5A40214F9D4E00FE4062 /* BaseViewResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08EC5A3D214F9D4D00FE4062 /* BaseViewResultController.xib */; };
+		08EC5A41214F9D4E00FE4062 /* BaseViewResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EC5A3F214F9D4E00FE4062 /* BaseViewResultController.m */; };
 		08EEE9E720A2E0DB006E7102 /* WBSListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F15C3E180E65B400410DE7 /* WBSListViewController.m */; };
 		08F5B2B31FCFEF7F0058C53D /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08310BE21FCD4ED200158677 /* LocalAuthentication.framework */; };
 		08F860FF1C27CE8600176F78 /* SourceMarkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F860FD1C27CE8600176F78 /* SourceMarkingListCell.m */; };
@@ -902,6 +907,13 @@
 		08E5235F1F6FAB69003CB688 /* KPOSResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPOSResult.h; sourceTree = "<group>"; };
 		08E523601F6FAB69003CB688 /* KPOSEMVApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPOSEMVApplication.h; sourceTree = "<group>"; };
 		08E523611F6FAB69003CB688 /* KPOSEMVTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPOSEMVTagList.h; sourceTree = "<group>"; };
+		08EC5A35214F994200FE4062 /* KTfontBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KTfontBold.ttf; sourceTree = "<group>"; };
+		08EC5A38214F9C8300FE4062 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = classes/BaseViewController.h; sourceTree = "<group>"; };
+		08EC5A39214F9C8300FE4062 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewController.xib; path = classes/BaseViewController.xib; sourceTree = "<group>"; };
+		08EC5A3A214F9C8400FE4062 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = classes/BaseViewController.m; sourceTree = "<group>"; };
+		08EC5A3D214F9D4D00FE4062 /* BaseViewResultController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewResultController.xib; path = classes/BaseViewResultController.xib; sourceTree = "<group>"; };
+		08EC5A3E214F9D4E00FE4062 /* BaseViewResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewResultController.h; path = classes/BaseViewResultController.h; sourceTree = "<group>"; };
+		08EC5A3F214F9D4E00FE4062 /* BaseViewResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewResultController.m; path = classes/BaseViewResultController.m; sourceTree = "<group>"; };
 		08F860FC1C27CE8600176F78 /* SourceMarkingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceMarkingListCell.h; path = classes/SourceMarkingListCell.h; sourceTree = "<group>"; };
 		08F860FD1C27CE8600176F78 /* SourceMarkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SourceMarkingListCell.m; path = classes/SourceMarkingListCell.m; sourceTree = "<group>"; };
 		08F860FE1C27CE8600176F78 /* SourceMarkingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SourceMarkingListCell.xib; path = classes/SourceMarkingListCell.xib; sourceTree = "<group>"; };
@@ -1755,6 +1767,19 @@
 			name = include;
 			sourceTree = "<group>";
 		};
+		08EC5A37214F9C2B00FE4062 /* BASE */ = {
+			isa = PBXGroup;
+			children = (
+				08EC5A3E214F9D4E00FE4062 /* BaseViewResultController.h */,
+				08EC5A3F214F9D4E00FE4062 /* BaseViewResultController.m */,
+				08EC5A3D214F9D4D00FE4062 /* BaseViewResultController.xib */,
+				08EC5A38214F9C8300FE4062 /* BaseViewController.h */,
+				08EC5A3A214F9C8400FE4062 /* BaseViewController.m */,
+				08EC5A39214F9C8300FE4062 /* BaseViewController.xib */,
+			);
+			name = BASE;
+			sourceTree = "<group>";
+		};
 		5D025E6417BB1E7700DAA349 /* 로그인 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2457,6 +2482,7 @@
 		5DDC04E617A2478E00453F55 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				08EC5A37214F9C2B00FE4062 /* BASE */,
 				0853F53F1BA2C64900C57C6C /* 바코드관리 */,
 				B6ED665E182CBAAF00ADA9BF /* 작업관리 */,
 				B6E85544181F36CE00C1E613 /* 인스토어마킹 */,
@@ -2588,6 +2614,7 @@
 		5DFB7A5D17A0ABB600EB8991 /* erpbarcode */ = {
 			isa = PBXGroup;
 			children = (
+				08EC5A35214F994200FE4062 /* KTfontBold.ttf */,
 				08FF755320516925000B5546 /* ixShield_com.kt.ERPBarcode_license.txt */,
 				5D3F699017B33E4500EBD5E8 /* images */,
 				5D88560417C5AEAD00521934 /* sound */,
@@ -2986,6 +3013,7 @@
 				5D65CCC8184728BB005B8A9B /* plus@2x.png in Resources */,
 				B6EE64B51845DE2200209381 /* button_change_up.png in Resources */,
 				B6EE64DD1845DE4800209381 /* button_rescan_up.png in Resources */,
+				08EC5A36214F994200FE4062 /* KTfontBold.ttf in Resources */,
 				B6A87709183F48D20053EBE8 /* login_pw.png in Resources */,
 				B6EE64B91845DE2200209381 /* button_confirm_up.png in Resources */,
 				B6A65CD21845BC9100422D27 /* button_send@2x.png in Resources */,
@@ -3098,6 +3126,7 @@
 				B6A65CE51845BCB800422D27 /* navigation_back@2x.png in Resources */,
 				B6A65CB91845BC8600422D27 /* button_request.png in Resources */,
 				B6A87680183EF4900053EBE8 /* main_button_menu_b@2x.png in Resources */,
+				08EC5A40214F9D4E00FE4062 /* BaseViewResultController.xib in Resources */,
 				B6A876F4183EF9560053EBE8 /* main_button_menu_a_up.png in Resources */,
 				B6A87678183EF4900053EBE8 /* main_button_menu_a4@2x.png in Resources */,
 				B6A65C7C184580F300422D27 /* common_inputbar_bg@2x.png in Resources */,
@@ -3231,6 +3260,7 @@
 				B6F9D8C7187A6E51004467AC /* button_receive_cert.png in Resources */,
 				5D6C80D217DEE8EB008C33C4 /* SettingViewController.xib in Resources */,
 				08ACF5DE210F014D0083E24F /* main_button_menu_b9@2x.png in Resources */,
+				08EC5A3B214F9C8400FE4062 /* BaseViewController.xib in Resources */,
 				5D4617BF17E06465007BBEA7 /* database.sqlite in Resources */,
 				B6A876A1183EF4900053EBE8 /* main_button_menu_d3.png in Resources */,
 				B6A87617183EF4800053EBE8 /* common_icon_logo1_bg.png in Resources */,
@@ -3351,6 +3381,7 @@
 				B6E810721895D9E20089C8EE /* ZoomPicViewController.m in Sources */,
 				5D26950817BE250600DD0BA9 /* BuyOutIntoViewController.m in Sources */,
 				B69CD54E18267AD100ADB6FE /* DatePickerViewController.m in Sources */,
+				08EC5A41214F9D4E00FE4062 /* BaseViewResultController.m in Sources */,
 				0825F3BB2073506C0096C9C1 /* UIViewController+findFirstResponder.m in Sources */,
 				5DD869AE1858685A00AE39E4 /* NoticeContentCell.m in Sources */,
 				083AB47619DB9D4B00CC6715 /* ChangePasswordViewController.m in Sources */,
@@ -3382,6 +3413,7 @@
 				B624838B188D07C000A06666 /* ERPRequestManager.m in Sources */,
 				5D5439BD17D864B500DE8CF0 /* CLTickerView.m in Sources */,
 				08DE32CC1BFC6DA600F1C32E /* LocListCell.m in Sources */,
+				08EC5A3C214F9C8400FE4062 /* BaseViewController.m in Sources */,
 				5D515E1917D961DB00E93247 /* LocListViewController.m in Sources */,
 				5D6C80CA17DECF2F008C33C4 /* DBManager.m in Sources */,
 				080F106D1C339D6900695817 /* FindUserController.m in Sources */,
@@ -3536,7 +3568,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3574,7 +3606,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

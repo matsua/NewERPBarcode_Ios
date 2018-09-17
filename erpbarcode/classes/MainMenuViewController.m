@@ -23,7 +23,10 @@
 #import "LocInfoViewController.h"
 #import "ERPLocationManager.h"
 #import "ERPAlert.h"
+
 #import "BarcodeViewController.h"
+#import "BaseViewController.h"
+
 
 #define VIEW1_POS_Y  20
 #define VIEW2_POS_Y  191
@@ -467,7 +470,96 @@
             }
             break;
             
-        case 9://설정
+        case 9://base-oa
+            if (nTag == 0){ //신규등록
+                [Util udSetObject:@"신규등록" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 1){ // 관리자변경
+                [Util udSetObject:@"관리자변경" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 2){ // 재물조사
+                [Util udSetObject:@"재물조사" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 3){ // 불용요청
+                [Util udSetObject:@"불용요청" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 4){ // OA연식조회
+                [Util udSetObject:@"OA연식조회" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 5){ // 납품확인
+                [Util udSetObject:@"납품확인" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 6){ // 대여등록
+                [Util udSetObject:@"대여등록" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 7){ // 대여반납
+                [Util udSetObject:@"대여반납" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OA";
+                [controller pushViewController:vc animated:YES];
+            }
+            
+            break;
+            
+        case 10://base-oe
+            if (nTag == 0){ //신규등록
+                [Util udSetObject:@"신규등록" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 1){ // 관리자변경
+                [Util udSetObject:@"관리자변경" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 2){ // 재물조사
+                [Util udSetObject:@"재물조사" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 3){ // 불용요청
+                [Util udSetObject:@"불용요청" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 4){ // 비품연식조회
+                [Util udSetObject:@"비품연식조회" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 5){ // 납품확인
+                [Util udSetObject:@"납품확인" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 6){ // 대여등록
+                [Util udSetObject:@"대여등록" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }else if(nTag == 7){ // 대여반납
+                [Util udSetObject:@"대여반납" forKey:USER_WORK_NAME];
+                BaseViewController* vc = [[BaseViewController alloc] init];
+                vc.bsnGb = @"OE";
+                [controller pushViewController:vc animated:YES];
+            }
+            
+            break;
+        case 11://설정
             if (nTag == 0){ //종료
                 [Util udSetObject:@"종료" forKey:USER_WORK_NAME];
                 exit(0);
@@ -534,11 +626,6 @@
         LoginViewController* vc = [[LoginViewController alloc] init];
         [vc requestUserLogout];
         exit(0);
-    }else if(alertView.tag == 2000){
-        if (buttonIndex == 0){
-            LoginViewController* vc = [[LoginViewController alloc] init];
-            [vc requestUserLogout];
-        }
     }
 }
 
@@ -604,35 +691,29 @@
     // =>title(메인메뉴이름), count(하위 서브메뉴의 갯수), submenu
     // submenu 구성
     // => 서브메뉴 이름, 이미지이름
-    for (NSInteger i=0; i < subMenuList.count/2; i++){
-        // 하나의 메뉴가 두개의 아이템(서브메뉴이름, 이미지 이름)을 갖고 있으므로
-        NSInteger fileIndex = (2*i)+1;
-        
+    for (NSInteger i = 0; i < subMenuList.count; i++){
         // 서브메뉴의 이름
         NSString* menuString = [subMenuList objectAtIndex:i];
         
-        // 해당 메뉴의 이미지파일 이름
-        NSString* fileName = [subMenuList objectAtIndex:fileIndex];
-        
         // 각 버튼은 tag값을 통해서 접근한다.
         UIButton * btn = (UIButton*)[viewSubMenu viewWithTag:10+i];
-        UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
-        [imgView setImage:[UIImage imageNamed:fileName]];
+//        UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
+        
         [btn setTitle:menuString forState:UIControlStateNormal];
         btn.hidden = NO;
-        imgView.hidden = NO;
+//        imgView.hidden = NO;
     }
     
     // submenu의 갯수만큼의 버튼을 제외한 나머지는 모두 감춰준다.
     for (NSInteger i = 0 ;i < 9 ; i++)
     {
-        if (i <= [subMenuList count]/2-1)
+        if (i <= [subMenuList count]-1)
             continue;
         else {
             UIButton * btn = (UIButton*)[viewSubMenu viewWithTag:10+i];
-            UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
+//            UIImageView* imgView = (UIImageView*)[viewSubMenu viewWithTag:20+i];
             btn.hidden = YES;
-            imgView.hidden = YES;
+//            imgView.hidden = YES;
         }
     }
 }
