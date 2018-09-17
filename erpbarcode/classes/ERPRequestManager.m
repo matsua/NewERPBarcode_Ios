@@ -312,7 +312,7 @@
 
     NSString* detailUrl = API_FAC_INQUERY;  // 실장 납품취소 제외한 나머지
     
-    if ([JOB_GUBUN isEqualToString:@"실장"])
+    if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"])
         detailUrl = API_FAC_INQUERY_MM;
     else if ([JOB_GUBUN isEqualToString:@"납품취소"])
         detailUrl = API_BUYOUT_CANCEL_LIST;

@@ -198,6 +198,9 @@ typedef enum {
 #define API_USER_AUTH_CFM           @"/user/checkCertificationNumber.json"                  //비밀번호 초기화 - 인증번호 확인
 #define API_USER_PWD_UPDATE         @"/user/password/by/user/executePasswordUpdate.json"    //비밀번호 초기화 - 비밀번호 저장
 
+#define API_SEND_FORM_MAKE          @"/operation/mount/facility/formMake.json"  //형상구성
+#define API_SEND_FORM_CLEAR         @"/operation/mount/facility/formClear.json" //형상해제
+
 #define API_BASE_OA_LOGIN           @"https://base.kt.com/base/OA/smart/login.jsp?USERID=%@&USERPWD=%@"                             //베이스OA 로그인
 #define API_BASE_OA_WORK_LIST_HALF  @"http://base.kt.com/base/OA/smart/work_list.jsp?COM=%@&USERID=%@&BCID=%@&ACT=search"           //베이스OA 불용요청
 #define API_BASE_OA_WORK_LIST       @"http://base.kt.com/base/OA/smart/work_list.jsp?COM=%@&USERID=%@&SDID=%@&BCID=%@&ACT=search"   //베이스OA 신규등록, 관리자 변경, 재물조사, 납품확인, 대여등록, 대여반납

@@ -382,7 +382,7 @@ const static char* moveTarKey = "moveTarKey";
     [self workDataInit];
     
     //위도,경도 가져온다.
-//    [[ERPLocationManager getInstance] getMyPosition];
+    //    [[ERPLocationManager getInstance] getMyPosition];
     
     //데이터 변경 없음
     [Util udSetBool:NO forKey:IS_DATA_MODIFIED];
@@ -437,27 +437,27 @@ const static char* moveTarKey = "moveTarKey";
 {
     // 화면이 로드되고 처음 뜰 때 나타내는 초기 정보들을 저장된 데이타에 의해 설정한다.
     if (dbWorkDic.count){
-        // TASK에 저장되므로 여기서는 필요없음
-        // UU 버튼 선택여부
-        //        if (!uuView.hidden){
-        //            NSString* uuState = [dbWorkDic objectForKey:@"UU_YN"];
-        //            btnUU.selected = ([uuState isEqualToString:@"Y"]) ? YES:NO;
-        //        }
-        //        // 형상구성 선택여부
-        //        if (!shapeView.hidden && !btnHierachy.hidden){
-        //            NSString* treeState = [dbWorkDic objectForKey:@"TREE_YN"];
-        //            btnHierachy.selected = ([treeState isEqualToString:@"Y"]) ? YES:NO;
-        //        }
-        //        // 스캔필수 선택여부
-        //        if (!curdView.hidden && !btnScan.hidden){
-        //            NSString* scanState = [dbWorkDic objectForKey:@"SCAN_YN"];
-        //            btnScan.selected = ([scanState isEqualToString:@"Y"]) ? YES:NO;
-        //        }
-        //        // 배송오더 선택여부
-        //        if (!deliveryOrderView.hidden && !btnDeliveryOreder.hidden){
-        //            NSString* orderState = [dbWorkDic objectForKey:@"ORDER_YN"];
-        //            btnDeliveryOreder.selected = ([orderState isEqualToString:@"Y"]) ? YES:NO;
-        //        }
+// TASK에 저장되므로 여기서는 필요없음
+// UU 버튼 선택여부
+//        if (!uuView.hidden){
+//            NSString* uuState = [dbWorkDic objectForKey:@"UU_YN"];
+//            btnUU.selected = ([uuState isEqualToString:@"Y"]) ? YES:NO;
+//        }
+//        // 형상구성 선택여부
+//        if (!shapeView.hidden && !btnHierachy.hidden){
+//            NSString* treeState = [dbWorkDic objectForKey:@"TREE_YN"];
+//            btnHierachy.selected = ([treeState isEqualToString:@"Y"]) ? YES:NO;
+//        }
+//        // 스캔필수 선택여부
+//        if (!curdView.hidden && !btnScan.hidden){
+//            NSString* scanState = [dbWorkDic objectForKey:@"SCAN_YN"];
+//            btnScan.selected = ([scanState isEqualToString:@"Y"]) ? YES:NO;
+//        }
+//        // 배송오더 선택여부
+//        if (!deliveryOrderView.hidden && !btnDeliveryOreder.hidden){
+//            NSString* orderState = [dbWorkDic objectForKey:@"ORDER_YN"];
+//            btnDeliveryOreder.selected = ([orderState isEqualToString:@"Y"]) ? YES:NO;
+//        }
         
         // Pickerview의 선택이 있었다면 설정한다.
         NSString* pickerRow = [dbWorkDic objectForKey:@"PICKER_ROW"];
@@ -833,21 +833,21 @@ const static char* moveTarKey = "moveTarKey";
     [workDic setObject:[WorkUtil getWorkCode:JOB_GUBUN] forKey:@"WORK_CD"];
     [workDic setObject:@"N" forKey:@"TRANSACT_YN"]; //미전송
     
-    // TASK에 추가로 저장되므로 여기서는 필요없는 데이터이다.  그래서 comment out처리함 2014. 1. 7 박수임
-    //    if (!uuView.hidden)
-    //        [workDic setObject:(btnUU.selected)? @"Y":@"N" forKey:@"UU_YN"];
-    //
-    //    //형상구성여부
-    //    if (!shapeView.hidden && !btnHierachy.hidden)
-    //        [workDic setObject:(btnHierachy.selected)? @"Y":@"N" forKey:@"TREE_YN"];
-    //
-    //    //스캔필수 처리
-    //    if (!curdView.hidden && !btnScan.hidden)
-    //        [workDic setObject:(btnScan.selected)? @"Y":@"N" forKey:@"SCAN_YN"];
-    //
-    //    //배송오더 처리
-    //    if (!deliveryOrderView.hidden && !btnDeliveryOreder.hidden)
-    //        [workDic setObject:(btnDeliveryOreder.selected)? @"Y":@"N" forKey:@"ORDER_YN"];
+// TASK에 추가로 저장되므로 여기서는 필요없는 데이터이다.  그래서 comment out처리함 2014. 1. 7 박수임
+//    if (!uuView.hidden)
+//        [workDic setObject:(btnUU.selected)? @"Y":@"N" forKey:@"UU_YN"];
+//
+//    //형상구성여부
+//    if (!shapeView.hidden && !btnHierachy.hidden)
+//        [workDic setObject:(btnHierachy.selected)? @"Y":@"N" forKey:@"TREE_YN"];
+//
+//    //스캔필수 처리
+//    if (!curdView.hidden && !btnScan.hidden)
+//        [workDic setObject:(btnScan.selected)? @"Y":@"N" forKey:@"SCAN_YN"];
+//
+//    //배송오더 처리
+//    if (!deliveryOrderView.hidden && !btnDeliveryOreder.hidden)
+//        [workDic setObject:(btnDeliveryOreder.selected)? @"Y":@"N" forKey:@"ORDER_YN"];
     
     
     //picker data 처리(고장코드 포함)
@@ -871,55 +871,6 @@ const static char* moveTarKey = "moveTarKey";
     
     if (tag == 100){ //위치바코드
         strLocBarCode = barcode;
-        
-//        // 입력받은 위치바코드의 validation체크
-//        // 베이 위치로는 인계,시설등록,실장만 가능, 팀내입고에서 베이 위치코드를 스캔하면 베이로는 입고(팀내) 할수 없습니다.”
-//        if ([JOB_GUBUN isEqualToString:@"입고(팀내)"] ||
-//            [JOB_GUBUN isEqualToString:@"접수(팀간)"] ||
-//            [JOB_GUBUN isEqualToString:@"납품입고"]
-//            ){
-//
-//            if (
-//                strLocBarCode.length > 17 &&
-//                ![strLocBarCode hasPrefix:@"VS"] &&
-//                ![[strLocBarCode substringFromIndex:17] isEqualToString:@"0000"]
-//                ){
-//
-//                message = [NSString stringWithFormat:@"'베이' 위치로는 '%@'\n작업을 하실 수 없습니다.",JOB_GUBUN];
-//                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-//                strLocBarCode = @"";
-//
-//                return YES;
-//            }
-//        }
-//
-//        // 철거작업일 때는 가상창고 위치바코드 사용 안됨.
-//        if ([JOB_GUBUN isEqualToString:@"철거"] && [strLocBarCode hasPrefix:@"VS"]){
-//            message = @"가상창고 위치바코드는\n스캔하실 수 없습니다.";
-//            [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-//            strLocBarCode = @"";
-//
-//            return YES;
-//        }
-//        // 베이위치 또는 P위치로 송부취소(팀간) 불가 처리 - DR-2013-57935 : 송부취소(팀간) 시 위치코드 스캔 추가 - request by 김희선 : 2014.06.11 - modify by 류성호 : 2014.06.16
-//        if ([JOB_GUBUN isEqualToString:@"송부취소(팀간)"]) {
-//            if ([strLocBarCode hasPrefix:@"P"] || (strLocBarCode.length > 17 && ![[strLocBarCode substringFromIndex:17] isEqualToString:@"0000"])){
-//                message =[NSString stringWithFormat:@"'베이' 또는 'P' 위치로는\n'%@'\n작업을 하실 수 없습니다.", JOB_GUBUN];
-//                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-//                strLocBarCode = @"";
-//
-//                return YES;
-//            }
-//        }
-//
-//        if(strLocBarCode.length != 11 && strLocBarCode.length != 14 && strLocBarCode.length != 17 && strLocBarCode.length != 21){
-//            message = @"처리할 수 없는 위치바코드입니다.";
-//            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-//
-//            txtLocCode.text = strLocBarCode = @"";
-//            [txtLocCode becomeFirstResponder];
-//            return YES;
-//        }
         
         message = [Util barcodeMatchVal:1 barcode:strLocBarCode];
         if(message.length > 0){
@@ -987,11 +938,7 @@ const static char* moveTarKey = "moveTarKey";
             return YES;
         }
         
-        if (
-            [JOB_GUBUN isEqualToString:@"송부취소(팀간)"] ||
-            [JOB_GUBUN isEqualToString:@"접수(팀간)"]
-            )
-        {
+        if ([JOB_GUBUN isEqualToString:@"송부취소(팀간)"] || [JOB_GUBUN isEqualToString:@"접수(팀간)"]){
             strMoveBarCode = strFccBarCode;
         }
         
@@ -1015,10 +962,7 @@ const static char* moveTarKey = "moveTarKey";
         }
         
         //찍은 설비바코드가 상위 바코드와 같으면 중복스캔
-        if (
-            !upperFacView.hidden &&
-            [barcode isEqualToString:txtUFacCode.text]
-            ){
+        if (!upperFacView.hidden && [barcode isEqualToString:txtUFacCode.text]){
             message = [NSString stringWithFormat:@"중복 스캔입니다.\n\n%@",barcode];
             [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
             
@@ -1390,55 +1334,40 @@ const static char* moveTarKey = "moveTarKey";
     // -- 화면 상의 상위바코드 찾아오기
     BOOL isError = NO;
     
-    // 탈장, 출고(팀내), 설비상태변경, 송부(팀간) 여러설비 작업 가능하도록 수정 요청
-    // 2014. 2. 11 request by 김희선
-    //    if (originalSAPList.count && (
-    //                                  [JOB_GUBUN isEqualToString:@"실장"]        ||
-    //                                  [JOB_GUBUN isEqualToString:@"탈장"]        ||
-    //                                  [JOB_GUBUN isEqualToString:@"출고(팀내)"]   ||
-    //                                  [JOB_GUBUN isEqualToString:@"설비상태변경"]  ||
-    //                                  [JOB_GUBUN isEqualToString:@"송부(팀간)"])
-    //        ){
-    if (originalSAPList.count && [JOB_GUBUN isEqualToString:@"실장"]){
+// 탈장, 출고(팀내), 설비상태변경, 송부(팀간) 여러설비 작업 가능하도록 수정 요청
+// 2014. 2. 11 request by 김희선
+//    if (originalSAPList.count && (
+//                                  [JOB_GUBUN isEqualToString:@"실장"]        ||
+//                                  [JOB_GUBUN isEqualToString:@"탈장"]        ||
+//                                  [JOB_GUBUN isEqualToString:@"출고(팀내)"]   ||
+//                                  [JOB_GUBUN isEqualToString:@"설비상태변경"]  ||
+//                                  [JOB_GUBUN isEqualToString:@"송부(팀간)"])
+//        ){
+    if ((originalSAPList.count && [JOB_GUBUN isEqualToString:@"실장"]) || (originalSAPList.count && [JOB_GUBUN isEqualToString:@"형상구성(창고내)"])){
         NSString* upperpartType = [parentItemDic objectForKey:@"PART_NAME"];
         
         // U - R, S, E NA
         // U - U만 가능
         if ([upperpartType isEqualToString:@"U"]){
-            if (
-                [partTypeName isEqualToString:@"R"] ||
-                [partTypeName isEqualToString:@"S"] ||
-                [partTypeName isEqualToString:@"E"]
-                )
+            if ([partTypeName isEqualToString:@"R"] || [partTypeName isEqualToString:@"S"] || [partTypeName isEqualToString:@"E"])
                 isError = YES;
         }
         // E - R, S, U NA
         // E - E만 가능
         else if ([upperpartType isEqualToString:@"E"]){
-            if (
-                [partTypeName isEqualToString:@"R"] ||
-                [partTypeName isEqualToString:@"S"] ||
-                [partTypeName isEqualToString:@"U"]
-                )
+            if ([partTypeName isEqualToString:@"R"] || [partTypeName isEqualToString:@"S"] || [partTypeName isEqualToString:@"U"])
                 isError = YES;
         }
         // S - E, S, R NA
         // S - U 가능
         else if ([upperpartType isEqualToString:@"S"]){
-            if (
-                [partTypeName isEqualToString:@"E"] ||
-                [partTypeName isEqualToString:@"S"] ||
-                [partTypeName isEqualToString:@"R"]
-                )
+            if ([partTypeName isEqualToString:@"E"] || [partTypeName isEqualToString:@"S"] || [partTypeName isEqualToString:@"R"])
                 isError = YES;
         }
         // R - E, R NA
         // R - S, U 가능
         else if ([upperpartType isEqualToString:@"R"]){
-            if (
-                [partTypeName isEqualToString:@"E"] ||
-                [partTypeName isEqualToString:@"R"]
-                )
+            if ([partTypeName isEqualToString:@"E"] || [partTypeName isEqualToString:@"R"])
                 isError = YES;
         }
     }
@@ -1784,8 +1713,7 @@ const static char* moveTarKey = "moveTarKey";
         [JOB_GUBUN isEqualToString:@"접수(팀간)"]   ||
         [JOB_GUBUN isEqualToString:@"납품입고"] ||
         [JOB_GUBUN isEqualToString:@"배송출고"] ||
-        [JOB_GUBUN isEqualToString:@"형상구성(창고내)"] ||
-        [JOB_GUBUN isEqualToString:@"형상해제(창고내)"]
+        [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]
         )
         isRequireLocCode = YES;
     else
@@ -2205,7 +2133,7 @@ const static char* moveTarKey = "moveTarKey";
 -(void) layoutControl
 {
     
-    if ([JOB_GUBUN isEqualToString:@"실장"]){
+    if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
         if ([originalSAPList count]){
             NSDictionary* dic = [originalSAPList objectAtIndex:0];
             NSString* partTypeName = [dic objectForKey:@"PART_NAME"];
@@ -2234,8 +2162,8 @@ const static char* moveTarKey = "moveTarKey";
                 txtDeviceID.enabled = NO;
                 txtDeviceID.text = lblDeviceID.text = strDeviceID = @"";
                 [Util setScrollTouch:scrollDeviceInfo Label:lblDeviceInfo withString:@""];
-                txtUFacCode.enabled = NO;
-                txtUFacCode.text = strUpperBarCode = @"";
+//                txtUFacCode.enabled = NO;
+//                txtUFacCode.text = strUpperBarCode = @"";
             }
             
             txtDeviceID.backgroundColor = (txtDeviceID.enabled)? [UIColor whiteColor]:[UIColor lightGrayColor];
@@ -2256,18 +2184,20 @@ const static char* moveTarKey = "moveTarKey";
 // isOrgInheritance는 전송할 때 필요하다.
 - (void) checkOrgInheritance
 {
-    if (
-        [JOB_GUBUN isEqualToString:@"실장"]
-        )
-    {
+    if ([JOB_GUBUN isEqualToString:@"실장"]){
         // 스캔한 설비(SCANTYPE != "0")
         NSString* upperpartName = [WorkUtil getParentPartName:originalSAPList];
         
-        if (
-            [upperpartName isEqualToString:@"U"] ||
-            (strUpperBarCode.length && [upper_deviceID isEqualToString:strDeviceID])
-            )
-        {
+        if ([upperpartName isEqualToString:@"U"] || (strUpperBarCode.length && [upper_deviceID isEqualToString:strDeviceID])){
+            isOrgInheritance = YES;
+        }
+        else{
+            isOrgInheritance = NO;
+        }
+    }else if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+        NSString* upperpartName = [WorkUtil getParentPartName:originalSAPList];
+        
+        if ([upperpartName isEqualToString:@"U"] || strUpperBarCode.length){
             isOrgInheritance = YES;
         }
         else{
@@ -2302,14 +2232,14 @@ const static char* moveTarKey = "moveTarKey";
             // 이 둘의 싱크를 맞춰주어야 하므로...
             NSMutableDictionary* childDic = [originalSAPList objectAtIndex:index];
             
-            //	  matsua : TODO. 불용대기 상태 변경시 알림.
-            //    입고(팀내), 설비상태변경 개별 설비스캔시 오늘날짜<=보증종료일(GWLEEN_O)일경우 메세지 출력 -> 확인 누르면 창닫힘(단순 알림) msg <무상교환/수리 확(보증기간 내 설비)>
-            //    GWLEEN_O 추가
-            //            if([childDic objectForKey:@"GWLEN_O"] != nil || ![[childDic objectForKey:@"GWLEN_O"] isEqualToString:@""]){
-            //                if([[NSDate TodayString] intValue] <= [[[childDic objectForKey:@"GWLEN_O"] stringByReplacingOccurrencesOfString:@"-" withString:@""] intValue]){
-            //                    [self showMessage:@"<무상교환/수리 확(보증기간 내 설비)>" tag:-1 title1:@"닫기" title2:nil];
-            //                }
-            //            }
+//      matsua : TODO. 불용대기 상태 변경시 알림.
+//    입고(팀내), 설비상태변경 개별 설비스캔시 오늘날짜<=보증종료일(GWLEEN_O)일경우 메세지 출력 -> 확인 누르면 창닫힘(단순 알림) msg <무상교환/수리 확(보증기간 내 설비)>
+//    GWLEEN_O 추가
+//            if([childDic objectForKey:@"GWLEN_O"] != nil || ![[childDic objectForKey:@"GWLEN_O"] isEqualToString:@""]){
+//                if([[NSDate TodayString] intValue] <= [[[childDic objectForKey:@"GWLEN_O"] stringByReplacingOccurrencesOfString:@"-" withString:@""] intValue]){
+//                    [self showMessage:@"<무상교환/수리 확(보증기간 내 설비)>" tag:-1 title1:@"닫기" title2:nil];
+//                }
+//            }
             
             scanType = [childDic objectForKey:@"SCANTYPE"];
             
@@ -2334,11 +2264,7 @@ const static char* moveTarKey = "moveTarKey";
                 }
             }
             
-            if(![JOB_GUBUN isEqualToString:@"접수(팀간)"] &&
-               ![JOB_GUBUN isEqualToString:@"납품입고"] &&
-               ![JOB_GUBUN isEqualToString:@"납품취소"] &&
-               ![JOB_GUBUN isEqualToString:@"배송출고"] ){
-                
+            if(![JOB_GUBUN isEqualToString:@"접수(팀간)"] && ![JOB_GUBUN isEqualToString:@"납품입고"] && ![JOB_GUBUN isEqualToString:@"납품취소"] && ![JOB_GUBUN isEqualToString:@"배송출고"] ){
                 // 하위에 달린 설비가 있을 경우 바로 상위에 있는 설비를 먼저 스캔하지 않고, 하위설비를 스캔할 경우 오류메세지를 띄워준다.
                 int parentIndex = [WorkUtil getParentIndex:[childDic objectForKey:@"HEQUNR"] fccList:originalSAPList];
                 if (parentIndex != -1)
@@ -2569,11 +2495,20 @@ const static char* moveTarKey = "moveTarKey";
     // 상위바코드를 스캔하지 않은 경우 오류처리
     // 실장하려고 스캔한 최상위 설비가 Unit인 경우는 상위바코드를 반드시 입력해야 한다.
     NSString* upperpartName = [WorkUtil getParentPartName:originalSAPList];
-    if (txtUFacCode.isEnabled && [upperpartName isEqualToString:@"U"] && !strUpperBarCode.length){
-        NSString* message = @"실장하실 대상인\n상위바코드를 스캔하세요.";
-        [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-        return NO;
+    if ([JOB_GUBUN isEqualToString:@"실장"]){
+        if (txtUFacCode.isEnabled && [upperpartName isEqualToString:@"U"] && !strUpperBarCode.length){
+            NSString* message = @"실장하실 대상인\n상위바코드를 스캔하세요.";
+            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+            return NO;
+        }
+    }else if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+        if (txtUFacCode.isEnabled && [upperpartName isEqualToString:@"U"] && !strUpperBarCode.length){
+            NSString* message = @"형상구성하실 대상인\n상위바코드를 스캔하세요.";
+            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+            return NO;
+        }
     }
+    
     
     // 설비바코드 리스트가 없는 경우 오류처리
     if (!fccBarcodeView.hidden && !originalSAPList.count){
@@ -2695,7 +2630,11 @@ const static char* moveTarKey = "moveTarKey";
                 return NO;
             }
             else {  // 오류가 아닌경우...  전송
-                if ([JOB_GUBUN isEqualToString:@"실장"]){
+                if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+                    if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+                        [self checkOrgInheritance];
+                    }
+                    
                     if ([self processSendCheckOrganization]){
                         message = @"전송하시겠습니까?";
                         [self showMessage:message tag:100 title1:@"예" title2:@"아니오"];
@@ -2756,9 +2695,9 @@ const static char* moveTarKey = "moveTarKey";
     NSString* message = nil;
     NSString* upperpartName = [WorkUtil getParentPartName:originalSAPList];
     
-    if (
-        [JOB_GUBUN isEqualToString:@"실장"]
-        ){
+    NSLog(@"CHKZKOSTL_INSTCONF == %@", CHKZKOSTL_INSTCONF);
+    
+    if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
         CHKZKOSTL_INSTCONF = @"";
         
         if (isOrgInheritance) {
@@ -2772,7 +2711,7 @@ const static char* moveTarKey = "moveTarKey";
                 [Util udSetBool:YES forKey:@"IS_DATA_MODIFIED"];
                 isDataSaved = NO;
                 
-                message = [NSString stringWithFormat:@"실장 대상 설비의 운용조직\n(%@)을\n상위설비의 운용조직\n(%@)으로\n변경합니다.\n진행하시겠습니까?",first_FccOrgName,upper_OperOrgName];
+                message = [NSString stringWithFormat:@"%@ 대상 설비의 운용조직\n(%@)을\n상위설비의 운용조직\n(%@)으로\n변경합니다.\n진행하시겠습니까?",JOB_GUBUN,first_FccOrgName,upper_OperOrgName];
                 [self showMessage:message tag:400 title1:@"예" title2:@"아니오"];
                 
                 return NO;
@@ -2821,14 +2760,23 @@ const static char* moveTarKey = "moveTarKey";
     }
     
     NSString* partTypeName = [WorkUtil getPartTypeName:[dic objectForKey:@"ZPPART"] device:[dic objectForKey:@"ZPGUBUN"]];
+    NSString *parentsType = @"";
     
+    if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+        if([fccSAPList count] == 0){
+            parentsType = [dic objectForKey:@"PART_NAME"];
+        }else{
+            parentsType = [[fccSAPList objectAtIndex:0] objectForKey:@"PART_NAME"];
+        }
+    }
     
     if (
-        ([JOB_GUBUN isEqualToString:@"실장"] && ([partTypeName isEqualToString:@"U"] || [partTypeName isEqualToString:@"S"])) ||
-        [JOB_GUBUN isEqualToString:@"배송출고"]  ||
-        [JOB_GUBUN isEqualToString:@"납품취소"]       ||
-        [JOB_GUBUN isEqualToString:@"접수(팀간)"]  ||
-        [JOB_GUBUN isEqualToString:@"설비정보"] ||
+        ([JOB_GUBUN isEqualToString:@"실장"] && ([partTypeName isEqualToString:@"U"] || [partTypeName isEqualToString:@"S"]))          ||
+        ([JOB_GUBUN isEqualToString:@"형상구성(창고내)"] && ([parentsType isEqualToString:@"U"] || [parentsType isEqualToString:@"S"])) ||
+        [JOB_GUBUN isEqualToString:@"배송출고"]         ||
+        [JOB_GUBUN isEqualToString:@"납품취소"]         ||
+        [JOB_GUBUN isEqualToString:@"접수(팀간)"]       ||
+        [JOB_GUBUN isEqualToString:@"설비정보"]         ||
         isChangeViewMode
         )
     {
@@ -3294,7 +3242,7 @@ const static char* moveTarKey = "moveTarKey";
     txtViewFailure.text = @"";
     
     
-    if ([JOB_GUBUN isEqualToString:@"실장"]){
+    if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
         txtDeviceID.enabled = txtUFacCode.enabled = NO;
         lblDeviceIDTitle.textColor = (txtDeviceID.enabled)? [UIColor blackColor] : [UIColor lightGrayColor];
         lblUFacCode.textColor = (txtUFacCode.enabled)? [UIColor blackColor] : [UIColor lightGrayColor];
@@ -3562,8 +3510,6 @@ const static char* moveTarKey = "moveTarKey";
                 [dic setObject:checkOrgValue forKey:@"ORG_CHECK"];
                 CHKZKOSTL_INSTCONF = @"Y";
             }
-            NSString* message = @"전송하시겠습니까?";
-            [self showMessage:message tag:100 title1:@"예" title2:@"아니오"];
         }
         else {//조직변경 안함
             isOrgChanged = NO;
@@ -3576,9 +3522,11 @@ const static char* moveTarKey = "moveTarKey";
                 [dic setObject:checkOrgValue forKey:@"ORG_CHECK"];
                 CHKZKOSTL_INSTCONF = @"N";
             }
+            
         }
-        // fccSAPList를 만들고, 화면도 반영
-        [self reloadTableWithRefresh:YES];
+        NSString* message = @"전송하시겠습니까?";
+        [self showMessage:message tag:100 title1:@"예" title2:@"아니오"];
+        [self reloadTableWithRefresh:YES];// fccSAPList를 만들고, 화면도 반영
     }
     else if (alertView.tag == 800){ //스캔필수
         if (buttonIndex == 1) //진행안함
@@ -4031,10 +3979,7 @@ const static char* moveTarKey = "moveTarKey";
     }
     else  if ([JOB_GUBUN isEqualToString:@"실장"])
         [paramDic setObject:@"0007" forKey:@"WORKID"];
-    else  if (
-              [JOB_GUBUN isEqualToString:@"송부(팀간)"] ||
-              [JOB_GUBUN isEqualToString:@"송부취소(팀간)"]
-              )
+    else  if ([JOB_GUBUN isEqualToString:@"송부(팀간)"] || [JOB_GUBUN isEqualToString:@"송부취소(팀간)"])
         [paramDic setObject:@"0016" forKey:@"WORKID"];
     else if ([JOB_GUBUN isEqualToString:@"납품취소"]){
         [paramDic setObject:@"1008" forKey:@"WORKID"];
@@ -4049,6 +3994,13 @@ const static char* moveTarKey = "moveTarKey";
             [paramDic setObject:@"Y" forKey:@"ZDOCRT"];
         else
             [paramDic setObject:@"" forKey:@"ZDOCRT"];
+    }
+    else if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+        [paramDic setObject:@"0020" forKey:@"WORKID"];
+    }
+    else if([JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
+        [paramDic setObject:@"0020" forKey:@"WORKID"];
+        [paramDic setObject:@"0950" forKey:@"PRCID"];
     }
     
     // GPS정보 셋팅
@@ -4093,10 +4045,7 @@ const static char* moveTarKey = "moveTarKey";
     }
     
     //to-do 실장일때만 처리
-    if (
-        [JOB_GUBUN isEqualToString:@"실장"]
-        )
-    {
+    if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
         [self checkOrgInheritance];     // 전송 직전에 상속 여부 체크
         
         if (isOrgInheritance)
@@ -4129,10 +4078,7 @@ const static char* moveTarKey = "moveTarKey";
         }
     }
     
-    if (
-        //[JOB_GUBUN isEqualToString:@"개조개량완료"] ||
-        [JOB_GUBUN isEqualToString:@"실장"]
-        ){
+    if ([JOB_GUBUN isEqualToString:@"실장"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
         if ([strLocBarCode hasPrefix:@"VS"])
             [paramDic setObject:@"X" forKey:@"CHKSTORT"];
         else
@@ -4151,6 +4097,19 @@ const static char* moveTarKey = "moveTarKey";
             [paramDic setObject:@"0271" forKey:@"PRCID"];
         
     }
+    else if ([JOB_GUBUN isEqualToString:@"형상구성(창고내)"])
+    {
+        if ([upperpartName isEqualToString:@"R"])
+            [paramDic setObject:@"0910" forKey:@"PRCID"];
+        else if ([upperpartName isEqualToString:@"S"])
+            [paramDic setObject:@"0920" forKey:@"PRCID"];
+        else if ([upperpartName isEqualToString:@"U"])
+            [paramDic setObject:@"0930" forKey:@"PRCID"];
+        else if ([upperpartName isEqualToString:@"E"])
+            [paramDic setObject:@"0940" forKey:@"PRCID"];
+        
+    }
+    
     else if([JOB_GUBUN isEqualToString:@"송부(팀간)"]){
         
         //운용조직
@@ -4402,6 +4361,36 @@ const static char* moveTarKey = "moveTarKey";
                 else
                     [subParamDic setObject:@"" forKey:@"CHKZKOSTL"]; // 조직변경
             }
+            else if ([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+                NSString* scanType = [dic objectForKey:@"SCANTYPE"];
+                NSString* orgChange = [dic objectForKey:@"ORGCH"];
+                NSString* CHKZKOSTL;
+                
+                if (CHKZKOSTL_INSTCONF.length)
+                    CHKZKOSTL = CHKZKOSTL_INSTCONF;
+                
+                if(![orgChange isEqualToString:@""]){
+                    if([orgChange isEqualToString:@"YES"]){
+                        CHKZKOSTL = @"";
+                    }else{
+                        CHKZKOSTL = @"N";
+                    }
+                }
+                
+                if (btnScan.selected && [scanType isEqualToString:@"0"])
+                    CHKZKOSTL = @"X";
+                
+                if ([CHKZKOSTL isEqualToString:@"N"] || [CHKZKOSTL isEqualToString:@"X"]){
+                    CHKZKOSTL = @"X";
+                    [subParamDic setObject:CHKZKOSTL forKey:@"CHKZKOSTL"]; // 조직변경 안함
+                }
+                else
+                    [subParamDic setObject:@"" forKey:@"CHKZKOSTL"]; // 조직변경
+                
+                
+                
+                NSLog(@"CHKZKOSTL_INSTCONF == %@", CHKZKOSTL);
+            }
             else if ([JOB_GUBUN isEqualToString:@"접수(팀간)"]){
             }
             else
@@ -4422,6 +4411,13 @@ const static char* moveTarKey = "moveTarKey";
         else if ([JOB_GUBUN isEqualToString:@"실장"]){
             [subParamDic setObject:@"0060" forKey:@"ZPSTATU"];
             [subParamDic setObject:[dic objectForKey:@"ZKOSTL"] forKey:@"KOSTL"];
+        }
+        else if ([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+            [subParamDic setObject:[dic objectForKey:@"ZPSTATU"] forKey:@"ZPSTATU"];
+            [subParamDic setObject:[dic objectForKey:@"ZKOSTL"] forKey:@"KOSTL"];
+        }
+        else if ([JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
+            [subParamDic setObject:[dic objectForKey:@"ZPSTATU"] forKey:@"ZPSTATU"];
         }
         else if ([JOB_GUBUN isEqualToString:@"송부취소(팀간)"]){
             [subParamDic setObject:@"0140" forKey:@"ZPSTATU"];
@@ -4444,7 +4440,7 @@ const static char* moveTarKey = "moveTarKey";
                 )
                 [subParamDic setObject:@"0081" forKey:@"ZPSTATU"]; // 스캔하지 않으면 분실위험으로
             else
-                [subParamDic setObject:@"0270" forKey:@"ZPSTATU"]; // 상태변경용 설비상태	"0270" 출고중
+                [subParamDic setObject:@"0270" forKey:@"ZPSTATU"]; // 상태변경용 설비상태    "0270" 출고중
         }
         else if ([JOB_GUBUN isEqualToString:@"납품취소"])
             [subParamDic setObject:@"0021" forKey:@"ZPSTATU"]; //출고로 설정
@@ -4488,6 +4484,12 @@ const static char* moveTarKey = "moveTarKey";
     }
     else if ([JOB_GUBUN isEqualToString:@"탈장"]){
         [requestMgr asychronousConnectToServer:API_SEND_UNMOUNT withData:rootDic];
+    }
+    else if ([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+        [requestMgr asychronousConnectToServer:API_SEND_FORM_MAKE withData:rootDic];
+    }
+    else if ([JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
+        [requestMgr asychronousConnectToServer:API_SEND_FORM_CLEAR withData:rootDic];
     }
     else if ([JOB_GUBUN isEqualToString:@"송부(팀간)"]){
         [requestMgr asychronousConnectToServer:API_SEND_DEVICE_NEW withData:rootDic];
@@ -4697,16 +4699,9 @@ const static char* moveTarKey = "moveTarKey";
         NSString* completeLocationCode = [dic objectForKey:@"completeLocationCode"];
         locType = roomTypeCode;
         
-        if (
-            [JOB_GUBUN isEqualToString:@"접수(팀간)"]
-            )
-        {
+        if ([JOB_GUBUN isEqualToString:@"접수(팀간)"]){
             if ([strLocBarCode hasPrefix:@"VS"]){
-                if (
-                    ![roomTypeCode isEqualToString:@"04"] &&
-                    ![roomTypeCode isEqualToString:@"05"] &&
-                    ![roomTypeCode isEqualToString:@"06"]
-                    ) {
+                if (![roomTypeCode isEqualToString:@"04"] && ![roomTypeCode isEqualToString:@"05"] && ![roomTypeCode isEqualToString:@"06"]){
                     NSString* message = @"'KT창고' 또는 '재활용창고'\n위치바코드를 스캔하세요.";
                     [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
                     strLocBarCode = @"";
@@ -4735,7 +4730,7 @@ const static char* moveTarKey = "moveTarKey";
         
         [self performSelectorOnMainThread:@selector(layoutControl) withObject:nil waitUntilDone:NO];
         
-        if ([JOB_GUBUN isEqualToString:@"배송출고"]){ //배송출고만 otd 생략하기 때문에
+        if ([JOB_GUBUN isEqualToString:@"배송출고"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){ //배송출고만 otd 생략하기 때문에 - 형상구성(창고내) 예외 추가
             [workDic setObject:strLocBarCode forKey:@"LOC_CD"];
             //working task add
             NSMutableDictionary* taskDic = [NSMutableDictionary dictionary];
@@ -4744,8 +4739,7 @@ const static char* moveTarKey = "moveTarKey";
             [taskList addObject:taskDic];
         }
         // OTD 물류센터 위치바코드 Validation
-        // OTD 물류센터 위치바코드 Validation
-        if (![JOB_GUBUN isEqualToString:@"배송출고"]){
+        if (![JOB_GUBUN isEqualToString:@"배송출고"] && ![JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
             [self requestAuthLocation:strLocBarCode];
         }else{
             isOperationFinished = YES;
@@ -4963,6 +4957,7 @@ const static char* moveTarKey = "moveTarKey";
         NSString* desc = [firstDic objectForKey:@"ZDESC"];
         NSString* submt = [firstDic objectForKey:@"SUBMT"];
         NSString* locCode = [firstDic objectForKey:@"ZEQUIPLP"];
+        NSString* part = [firstDic objectForKey:@"ZPPART"];
         
         // 해당 바코드가 현재의 JOB(JOB_GUBUN)을 실행 할 수 있는 상태인지 여부 판단
         // errorMessage가 @""가 아닌 경우는 오류상황이므로 메세지 띄워주고 리턴.  그렇지 않은 경우는 오류 아님.
@@ -5066,6 +5061,47 @@ const static char* moveTarKey = "moveTarKey";
                 return;
             }
         }
+        else if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"] || [JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
+            if (![strLocBarCode isEqualToString:locCode] && [JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+                NSString* message = @"설비바코드의 위치가 스캔한 위치바코드와 다릅니다. 입고(팀내) 작업 후 형상구성하세요.";
+                
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+                isOperationFinished = YES;
+                
+                return;
+            }
+            
+            if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"] && [part isEqualToString:@""]){
+                NSString* message = [NSString stringWithFormat:@"'단품'은 형상구성 대상 설비가 아닙니다."];
+                
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+                isOperationFinished = YES;
+                
+                return;
+            }
+            
+            if (![status isEqualToString:@"0100"] && ![status isEqualToString:@"0110"] && ![status isEqualToString:@"0020"]){
+                NSString* message = @"";
+                if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+                    message = [NSString stringWithFormat:@"'유휴/예비/납품입고' 상태만 형상구성이 가능합니다."];
+                }else{
+                    message = [NSString stringWithFormat:@"'유휴/예비/납품입고' 상태만 형상해제가 가능합니다."];
+                }
+                
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+                isOperationFinished = YES;
+                
+                return;
+            }
+            
+            if (locCode.length > 17 && ![locCode hasPrefix:@"VS"] && ![[locCode substringFromIndex:17] isEqualToString:@"0000"]){
+                NSString *message = [NSString stringWithFormat:@"'베이' 에 위치해 있는 설비로는 '%@'\n작업을 하실 수 없습니다.",JOB_GUBUN];
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+                isOperationFinished = YES;
+                
+                return;
+            }
+        }
         
         // 화면 상의 상위바코드 찾아오기
         NSDictionary* parentItemDic = nil;
@@ -5085,12 +5121,29 @@ const static char* moveTarKey = "moveTarKey";
         
         if ([self isCanMultiFacPartTypeName:partTypeName]){
             NSString* message = [NSString stringWithFormat:@"여러 설비를 동시에 '%@' 작업을\n하실 수 없습니다.\n먼저 전송 후 다시 시도하세요.",JOB_GUBUN];
-            
             [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-            
             isOperationFinished = YES;
             
             return;
+        }
+        
+        if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+            if([resultList count] > 1){
+                NSString *childBarcode = @"";
+                NSString *sapBarcode = @"";
+                
+                for (NSDictionary* childDic in resultList){
+                    childBarcode = [childDic objectForKey:@"EQUNR"];
+                    for(NSDictionary* sapDic in originalSAPList){
+                        sapBarcode = [sapDic objectForKey:@"EQUNR"];
+                        if([childBarcode isEqualToString:sapBarcode]){
+                            [self showMessage:[NSString stringWithFormat:@"중복 스캔입니다.\n\n%@",childBarcode] tag:-1 title1:@"닫기" title2:nil];
+                            isOperationFinished = YES;
+                            return;
+                        }
+                    }
+                }
+            }
         }
         
         // 운영조직 변경 여부
@@ -5172,6 +5225,7 @@ const static char* moveTarKey = "moveTarKey";
             [sapDic setObject:[dic objectForKey:@"ZPGUBUN"] forKey:@"ZPGUBUN"];
             [sapDic setObject:[dic objectForKey:@"ZPPART"] forKey:@"ZPPART"];
             [sapDic setObject:[dic objectForKey:@"ZPSTATU"] forKey:@"ZPSTATU"];
+            [sapDic setObject:@"" forKey:@"ORGCH"];
             if([dic objectForKey:@"ZSETUP"] != nil) [sapDic setObject:[dic objectForKey:@"ZSETUP"] forKey:@"ZSETUP"];   // 셋업공사비 //matsua : test
             NSString* partTypeName = [WorkUtil getPartTypeName:[dic objectForKey:@"ZPPART"] device:[dic objectForKey:@"ZPGUBUN"]];
             if([dic objectForKey:@"GWLEN_O"] != nil)[sapDic setObject:[dic objectForKey:@"GWLEN_O"] forKey:@"GWLEN_O"];     //보증종료일
@@ -5187,7 +5241,8 @@ const static char* moveTarKey = "moveTarKey";
             NSString* orgName = [dic objectForKey:@"ZKTEXT"];
             NSString* checkOrgValue = nil;
             
-            if ([JOB_GUBUN isEqualToString:@"실장"] && ([rootPartTypeName isEqualToString:@"U"] || [rootPartTypeName isEqualToString:@"S"]))
+            if (([JOB_GUBUN isEqualToString:@"실장"] && ([rootPartTypeName isEqualToString:@"U"] || [rootPartTypeName isEqualToString:@"S"])) ||
+                ([JOB_GUBUN isEqualToString:@"형상구성(창고내)"] && ([rootPartTypeName isEqualToString:@"U"] || [rootPartTypeName isEqualToString:@"S"])))
             {
                 // 유닛이나 쉘프 실장은 전송 직전에 운용조직 변경 여부 물어 본다. 상속 받으면 물어 보지 않는다.
                 //조직 체크값 관리 ORG_CHECK_VALUE
@@ -5210,6 +5265,23 @@ const static char* moveTarKey = "moveTarKey";
             
             [sapDic setObject:checkOrgValue forKey:@"ORG_CHECK"];
             
+            if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+                NSString *ParentPart = @"";
+                if([fccSAPList count] == 0){
+                    ParentPart = [[resultList objectAtIndex:0] objectForKey:@"PART_NAME"];
+                }else{
+                    ParentPart = [[fccSAPList objectAtIndex:0] objectForKey:@"PART_NAME"];
+                }
+                
+                if([ParentPart isEqualToString:@"R"]){
+                    if(isOrgChanged){
+                        [sapDic setObject:@"YES" forKey:@"ORGCH"];
+                    }else{
+                        [sapDic setObject:@"NO" forKey:@"ORGCH"];
+                    }
+                }
+            }
+            
             // 입고(팀내), 철거는 새로 tree구조를 만들지 않고, SAP으로 부터 받은 tree구조를 이용한다.
             BOOL isMakeHierachy = YES;
             
@@ -5221,8 +5293,7 @@ const static char* moveTarKey = "moveTarKey";
             // 출고(팀내), 탈장, 송부(팀간), 설비상태변경, 고장등록, 배송출고도 R,S,U스캔시 형상 단절하여 병렬처리
             // --> 납품입고, 실장 외의 작업이 해당됨.
             // request by 김희선 2014. 2. 11
-            if ((![JOB_GUBUN isEqualToString:@"납품입고"] &&
-                 ![JOB_GUBUN isEqualToString:@"실장"]) && isFirstScan)
+            if ((![JOB_GUBUN isEqualToString:@"납품입고"] && ![JOB_GUBUN isEqualToString:@"실장"] && ![JOB_GUBUN isEqualToString:@"형상구성(창고내)"]) && isFirstScan)
                 isMakeHierachy = NO;
             
             // tableview에 tree구조를 만들어 insert해준다.
@@ -5420,9 +5491,19 @@ const static char* moveTarKey = "moveTarKey";
             
             return;
         }
+        
+        if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"] && [partTypeName isEqualToString:@""]){
+            NSString* message = [NSString stringWithFormat:@"'단품'은 형상구성 대상 설비가 아닙니다."];
+            
+            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+            isOperationFinished = YES;
+            
+            return;
+        }
+        
         // 실장 - 상위바코드가 운용이 아니면 실장 불가 처리 -  2014.01.15 request by 김희선 - modify by 류성호
         //if(strLocBarCode.length > 17 && ![strLocBarCode hasPrefix:@"VS"] && ![[strLocBarCode substringFromIndex:17] isEqualToString:@"0000"] && ![ZPSTATU isEqualToString:@"0060"]) {
-        if (![ZPSTATU isEqualToString:@"0060"]) {
+        if (![ZPSTATU isEqualToString:@"0060"] && ![JOB_GUBUN isEqualToString:@"형상구성(창고내)"]) {
             NSString* message = [NSString stringWithFormat:@"상위 설비의 상태가 '%@'인\n상위 설비는 '%@' 작업을\n하실 수 없습니다.", ZDESC, JOB_GUBUN];
             
             [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
@@ -5450,46 +5531,57 @@ const static char* moveTarKey = "moveTarKey";
          상위바코드가 탈장이면 실장 안되게...
          코드 0080
          */
-        if (
-            [ZPSTATU isEqualToString:@"0021"] ||
-            [ZPSTATU isEqualToString:@"0080"] ||
-            [ZPSTATU isEqualToString:@"0120"] ||
-            [ZPSTATU isEqualToString:@"0130"] ||
-            [ZPSTATU isEqualToString:@"0160"] ||
-            [ZPSTATU isEqualToString:@"0200"] ||
-            [ZPSTATU isEqualToString:@"0210"] ||
-            [ZPSTATU isEqualToString:@"0240"] ||
-            [ZPSTATU isEqualToString:@"0260"] ||
-            [ZPSTATU isEqualToString:@"0270"]){
-            NSString* message = [NSString stringWithFormat:@"상위 설비의 상태가 %@인 설비로\n %@작업을\n하실 수 없습니다.",ZDESC,JOBGUBUN];
+        if([JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+            if (![ZPSTATU isEqualToString:@"0100"] && ![ZPSTATU isEqualToString:@"0110"] && ![ZPSTATU isEqualToString:@"0020"]){
+                NSString* message = [NSString stringWithFormat:@"'유휴/예비/납품입고' 상태만 형상구성이 가능합니다."];
+                
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+                
+                txtUFacCode.text = @"";
+                strUpperBarCode = @"";
+                lblUpperPartType.text = @"";
+                isOperationFinished = YES;
+                upper_deviceID = @"";
+                upper_OperOrgCode = @"";
+                upper_OperOrgName = @"";
+                [self checkOrgInheritance];
+                
+                return;
+            }
+        }else{
+            if ([ZPSTATU isEqualToString:@"0021"] || [ZPSTATU isEqualToString:@"0080"] || [ZPSTATU isEqualToString:@"0120"] || [ZPSTATU isEqualToString:@"0130"] ||
+                [ZPSTATU isEqualToString:@"0160"] || [ZPSTATU isEqualToString:@"0200"] || [ZPSTATU isEqualToString:@"0210"] || [ZPSTATU isEqualToString:@"0240"] ||
+                [ZPSTATU isEqualToString:@"0260"] || [ZPSTATU isEqualToString:@"0270"]){
+                NSString* message = [NSString stringWithFormat:@"상위 설비의 상태가 %@인 설비로\n %@작업을\n하실 수 없습니다.",ZDESC,JOBGUBUN];
+                
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
+                
+                txtUFacCode.text = @"";
+                strUpperBarCode = @"";
+                lblUpperPartType.text = @"";
+                isOperationFinished = YES;
+                upper_deviceID = @"";
+                upper_OperOrgCode = @"";
+                upper_OperOrgName = @"";
+                [self checkOrgInheritance];
+                
+                return;
+            }
             
-            [self showMessage:message tag:-1 title1:@"닫기" title2:nil isError:YES];
-            
-            txtUFacCode.text = @"";
-            strUpperBarCode = @"";
-            lblUpperPartType.text = @"";
-            isOperationFinished = YES;
-            upper_deviceID = @"";
-            upper_OperOrgCode = @"";
-            upper_OperOrgName = @"";
-            [self checkOrgInheritance];
-            
-            return;
-        }
-        
-        if (!upper_deviceID.length){
-            NSString* message = [NSString stringWithFormat:@"장치ID가 없는 상위설비입니다.\n상위설비부터 처리하신 후\n다시 실행하세요"];
-            [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
-            txtUFacCode.text = @"";
-            strUpperBarCode = @"";
-            lblUpperPartType.text = @"";
-            isOperationFinished = YES;
-            upper_deviceID = @"";
-            upper_OperOrgCode = @"";
-            upper_OperOrgName = @"";
-            [self checkOrgInheritance];
-            
-            return;
+            if (!upper_deviceID.length){
+                NSString* message = [NSString stringWithFormat:@"장치ID가 없는 상위설비입니다.\n상위설비부터 처리하신 후\n다시 실행하세요"];
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                txtUFacCode.text = @"";
+                strUpperBarCode = @"";
+                lblUpperPartType.text = @"";
+                isOperationFinished = YES;
+                upper_deviceID = @"";
+                upper_OperOrgCode = @"";
+                upper_OperOrgName = @"";
+                [self checkOrgInheritance];
+                
+                return;
+            }
         }
         
         if (!upper_OperOrgCode.length){
@@ -5507,11 +5599,38 @@ const static char* moveTarKey = "moveTarKey";
             return;
         }
         
-        if ([partTypeName isEqualToString:@"U"]){
+        if(![JOB_GUBUN isEqualToString:@"형상구성(창고내)"]){
+            if ([partTypeName isEqualToString:@"U"]){
+                NSString* parentPartTypeName = [WorkUtil getParentPartName:originalSAPList];
+                if ([parentPartTypeName isEqualToString:@"U"]){ //상위바코드 부품종류
+                    NSString* message = [NSString stringWithFormat:@"상위 설비로 '유닛' 을 스캔하였습니다.\n진행하시겠습니까?"];
+                    [self showMessage:message tag:900 title1:@"예" title2:@"아니오"];
+                    isOperationFinished = YES;
+                    upper_deviceID = @"";
+                    upper_OperOrgCode = @"";
+                    upper_OperOrgName = @"";
+                    [self checkOrgInheritance];
+                    
+                    return;
+                }
+            }
+        }else{
             NSString* parentPartTypeName = [WorkUtil getParentPartName:originalSAPList];
-            if ([parentPartTypeName isEqualToString:@"U"]){ //상위바코드 부품종류
-                NSString* message = [NSString stringWithFormat:@"상위 설비로 '유닛' 을 스캔하였습니다.\n진행하시겠습니까?"];
-                [self showMessage:message tag:900 title1:@"예" title2:@"아니오"];
+            if([parentPartTypeName isEqualToString:partTypeName]){
+                NSString *tmpName = @"";
+                if([partTypeName isEqualToString:@"S"]){
+                    tmpName = @"Shelf";
+                }else if([partTypeName isEqualToString:@"R"]){
+                    tmpName = @"Rack";
+                }else if([partTypeName isEqualToString:@"U"]){
+                    tmpName = @"Unit";
+                }
+                
+                NSString* message = [NSString stringWithFormat:@"'%@'의 상위바코드로 '%@'을\n스캔 하실 수 없습니다.",tmpName,tmpName];
+                [self showMessage:message tag:-1 title1:@"닫기" title2:nil];
+                txtUFacCode.text = @"";
+                strUpperBarCode = @"";
+                lblUpperPartType.text = @"";
                 isOperationFinished = YES;
                 upper_deviceID = @"";
                 upper_OperOrgCode = @"";

@@ -394,7 +394,7 @@
         //베이 위치코드를 스캔하면 베이로는 입고(팀내) 할수 없습니다.”
         if ([JOB_GUBUN isEqualToString:@"입고(팀내)"] || [JOB_GUBUN isEqualToString:@"접수(팀간)"] || [JOB_GUBUN isEqualToString:@"납품입고"] || [JOB_GUBUN isEqualToString:@"부외실물등록요청"] ||
             [JOB_GUBUN isEqualToString:@"수리완료"] || [JOB_GUBUN isEqualToString:@"개조개량완료"] || [JOB_GUBUN isEqualToString:@"개조개량의뢰취소"] || [JOB_GUBUN isEqualToString:@"고장등록취소"] ||
-            [JOB_GUBUN isEqualToString:@"수리의뢰취소"]){
+            [JOB_GUBUN isEqualToString:@"수리의뢰취소"] || [JOB_GUBUN isEqualToString:@"형상구성(창고내)"] || [JOB_GUBUN isEqualToString:@"형상해제(창고내)"]){
             if (barcode.length > 17 && ![barcode hasPrefix:@"VS"] && ![[barcode substringFromIndex:17] isEqualToString:@"0000"]){
                 return message = [NSString stringWithFormat:@"'베이' 위치로는 '%@'\n작업을 하실 수 없습니다.",JOB_GUBUN];
             }
@@ -413,11 +413,6 @@
                 return message =[NSString stringWithFormat:@"'베이' 또는 'P' 위치로는\n'%@'\n작업을 하실 수 없습니다.", JOB_GUBUN];
             }
         }
-        
-        
-        
-            
-            
     }else if(type == 2){
         if (barcode.length < 16 || barcode.length > 18){
             return message = @"처리할 수 없는 설비바코드입니다.";
